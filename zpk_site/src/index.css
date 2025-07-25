@@ -1,0 +1,9 @@
+:root {
+  --light-violet-color: #CCCCFF;
+  --hover-light-violet-color: #b8b8fd;
+  --blue-color: #007BA7;
+  --hover-blue-color: #006e96;
+  --btn-grey-color: #444;
+  --hover-btn-grey-color: #666;
+  overflow-x: hidden;
+}

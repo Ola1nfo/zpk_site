@@ -1,0 +1,57 @@
+.header {
+  background-color: transparent;
+  margin: 0 auto;
+
+  .navbar {
+    padding: 0;
+
+    .logo{
+        width: 50px;
+    }
+
+    .instagramLogo{
+        width: 30px;
+        margin: -20px;
+    }
+
+    .mailLogo{
+        width: 34px;
+        margin: -20px;
+    }
+
+    .linkBtn{
+        display: flex;
+    }
+
+    .nav-link {
+      color: #ffffff;
+      font-weight: 500;
+      padding: 10px 15px;
+
+      &:hover {
+        color: #0056b3;
+      }
+
+      &.dropdown-toggle::after {
+        margin-left: 10px;
+      }
+    }
+
+    .dropdown-menu {
+      background-color: #ffffff;
+      border: 1px solid #dee2e6;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+      .dropdown-item {
+        padding: 8px 20px;
+        font-weight: 400;
+        color: #333;
+
+        &:hover {
+          background-color: #f1f1f1;
+          color: #0056b3;
+        }
+      }
+    }
+  }
+}

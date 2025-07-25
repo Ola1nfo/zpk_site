@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@types/react-router": "^5.1.20",
+    "bootstrap": "^5.3.7",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.6.3",
+    "redux": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.3.3",
+    "@types/redux": "^3.6.31",
+    "sass-embedded": "^1.89.2"
+  }
+}
