@@ -8,6 +8,8 @@ import CardActionArea from '@mui/material/CardActionArea';
 import CardActions from '@mui/material/CardActions';
 import { useState } from 'react';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import L from 'leaflet';
 
 import Logo from '../../components/img/logo.png'
 import instagramLogo from '../../components/img/instagramLogo.png'
@@ -93,14 +95,39 @@ const professions = [
   
 ];
 
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+});
+
+const position: [number, number] = [50.52158, 26.25582]; 
+
+function FlyToMarker() {
+  const map = useMap();
+
+  const handleClick = () => {
+    map.flyTo(position, 17, {
+      animate: true,
+      duration: 1.5,
+    });
+  };
+
+  return (
+    <div className="map-address-label" onClick={handleClick}>
+      Рівненська обл., м. Здолбунів, вул. Ясна, 6
+    </div>
+  );
+}
+
 export default function Home() {
     
     const [index, setIndex] = useState(0);
     const prev = () => {setIndex((prev) => (prev > 0 ? prev - 1 : 0))}
     const next = () => {setIndex((prev) => prev + 3 < professions.length ? prev + 1 : prev)}
     const cardWidth = 345; 
-    const gap = 30;        
-
+    const gap = 30;   
 
     return (
         <div className='container-fluid'>
@@ -432,8 +459,6 @@ export default function Home() {
                             </li>
                         </ul>
                     </div>
-
-                    {/* Права частина */}
                     <div className="col-lg-6">
                         <div className="form-box p-4 rounded">
                         <h4 className="text-white mb-2">Виникли запитання?</h4>
@@ -449,7 +474,49 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-
+            <div className="custom-map-container">
+                <MapContainer center={position} zoom={17} scrollWheelZoom={false} className="map">
+                    <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <Marker position={position}>
+                    <Popup>
+                        Рівненська обл., м. Здолбунів<br />вул. Ясна, 6
+                    </Popup>
+                    </Marker>
+                    <FlyToMarker />
+                </MapContainer>
+            </div>
+            <footer className="footer">
+                <div className="footer-content">
+                    <div className="footer-column">
+                        <h2 className="footer-logo">Здолбунівський професійний коледж</h2>
+                        <p className="footer__slogan">Долучайся до нашої онлайн-сім'ї в соцмережах</p>
+                        <div className="footer-social">
+                            <div className='linkBtn'>
+                                <a className="nav-link" href="https://www.instagram.com/zpkpto/"><img className='instagramLogo' src={ instagramLogo } alt="instagramLogo" /></a>
+                                <a className="nav-link" href="https://www.facebook.com/zvpuzt/"><img className='instagramLogo' src={ facebookLogo } alt="facebookLogo" /></a>
+                                <a className="nav-link" href="#"><img className='mailLogo' src={ mailLogo } alt="mailLogo" /></a>
+                            </div>
+                        </div>
+                        <img src="/qr-code-left.png" alt="QR-код" className="footer-qr" />
+                    </div>
+                    <div className="footer-column">
+                        <h3>Навігація</h3>
+                        <ul>
+                            <li><a href="#">Новини</a></li>
+                            <li><a href="#">Наші професії</a></li>
+                            <li><a href="#">Приймальна комісія</a></li>
+                            <li><a href="#">Зв'язатись з нами</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="footer-bottom">
+                    <span>&copy; Створено ЗПК</span>
+                    <span>Всі права захищено</span>
+                </div>
+            </footer>
 
         </div>      
     )
