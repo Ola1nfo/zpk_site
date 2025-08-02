@@ -5,6 +5,7 @@
   .navbar {
     padding: 0;
     flex-wrap: wrap;
+    background-color: #4444447e;
 
     .logo {
       width: 80px;
@@ -254,6 +255,17 @@
   }
 }
 
+@keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .green-carousel-section {
   background-color: var(--blue-color);
   width: 100vw;
@@ -278,6 +290,9 @@
       padding: 10px 25px;
       margin: 50px 0px;
       background-color: var(--btn-grey-color);
+      opacity: 0;
+      animation: slideDownFade 1s ease-out forwards;
+      animation-delay: 0.3s;
 
       &:hover {
           background-color: var(--hover-btn-grey-color);
@@ -492,6 +507,11 @@
       border-radius: 30px;
       padding: 12px;
       font-weight: 600;
+
+      &:hover{
+        background-color: #f1f1f1;
+        color: var(--blue-color);
+      }
     }
   }
 }
@@ -535,7 +555,8 @@
   background-color: #222;
   color: #eee;
   padding: 40px 20px 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100vw;
+  margin-left: -20px;
 
   .footer-content {
     display: flex;
@@ -553,6 +574,20 @@
       margin-bottom: 15px;
       font-weight: 700;
       color: #f4f4f4;
+    }
+
+    h3 {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60px; 
+        height: 3px;
+        background-color: var(--blue-color);
+      }
     }
 
     ul {
@@ -607,8 +642,8 @@
   }
 
   .footer-qr {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     object-fit: contain;
     border-radius: 6px;
     border: 1px solid #444;

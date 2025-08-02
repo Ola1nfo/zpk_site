@@ -1,4 +1,5 @@
 import './Home.scss'
+import { Link } from 'react-router'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -35,6 +36,7 @@ import imgPerukar from '../../components/Header/img/perukar.jpg'
 import imgMontashnuk from '../../components/Header/img/montashnuk.jpg'
 import imgOperatorDron from '../../components/Header/img/operatorDron.jpg'
 import imgDerevoobrobnuk from '../../components/Header/img/derevoobrobnuk.jpg'
+import QRInstagram from '../../components/Header/img/QRInstagram.png'
 
 const advantages = [
   { icon: icon1, label: 'актуальні професії' },
@@ -145,7 +147,9 @@ export default function Home() {
                                     Про нас
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a className="dropdown-item" href="#">Наша історія</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/history">Наша історія</Link>
+                                        </li>
                                         <li><a className="dropdown-item" href="#">Наша символіка</a></li>
                                         <li><a className="dropdown-item" href="#">Адіміністрація</a></li>
                                     </ul>
@@ -463,7 +467,6 @@ export default function Home() {
                         <div className="form-box p-4 rounded">
                         <h4 className="text-white mb-2">Виникли запитання?</h4>
                         <p className="text-white-50 mb-4">Заповни форму нижче, і ми відповімо!</p>
-
                         <form>
                             <input type="text" placeholder="Ваше ім'я" className="form-control mb-3" />
                             <input type="tel" placeholder="Ваш номер телефону" className="form-control mb-3" />
@@ -500,7 +503,7 @@ export default function Home() {
                                 <a className="nav-link" href="#"><img className='mailLogo' src={ mailLogo } alt="mailLogo" /></a>
                             </div>
                         </div>
-                        <img src="/qr-code-left.png" alt="QR-код" className="footer-qr" />
+                        <img src={QRInstagram} alt="QR-код" className="footer-qr" />
                     </div>
                     <div className="footer-column">
                         <h3>Навігація</h3>
