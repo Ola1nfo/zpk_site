@@ -77,3 +77,38 @@
     line-height: 1.5;
   }
 }
+
+.photo-gallery {
+  background: #f1c40f; // жовтий фон
+  padding: 2rem;
+  text-align: center;
+
+  .main-slider {
+    width: 600px;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+      border-radius: 8px;
+    }
+  }
+
+  .thumbs-slider {
+    margin-top: 1rem;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+
+    img {
+      width: 100%;
+      cursor: pointer;
+      border-radius: 4px;
+      opacity: 0.8;
+      transition: 0.3s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

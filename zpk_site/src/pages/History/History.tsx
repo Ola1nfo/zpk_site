@@ -1,6 +1,17 @@
 import './History.scss';
 import Header from '../../components/Header/Header';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Thumbs } from 'swiper/modules';
+import { useState } from 'react';
+import './History.scss';
 
+const photos = [
+  '/images/photo1.jpg',
+  '/images/photo2.jpg',
+  '/images/photo3.jpg',
+  '/images/photo4.jpg',
+  '/images/photo5.jpg',
+];
 
 interface TimelineItem {
   year: string;
@@ -87,6 +98,8 @@ const data: TimelineItem[] = [
 ];
 
 export default function History() {
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+
   return (
     <div>
       <Header />
@@ -103,7 +116,34 @@ export default function History() {
             </div>
           ))}
       </section>
-      
+      <section className="photo-gallery">
+        <Swiper
+          modules={[Navigation, Thumbs]}
+          navigation
+          thumbs={{ swiper: thumbsSwiper }}
+          className="main-slider"
+        >
+          {photos.map((src, i) => (
+            <SwiperSlide key={i}>
+              <img src={src} alt={`Фото ${i + 1}`} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <Swiper
+          onSwiper={setThumbsSwiper}
+          spaceBetween={10}
+          slidesPerView={6}
+          watchSlidesProgress
+          className="thumbs-slider"
+        >
+          {photos.map((src, i) => (
+            <SwiperSlide key={i}>
+              <img src={src} alt={`Мініатюра ${i + 1}`} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
 
 
     </div>
