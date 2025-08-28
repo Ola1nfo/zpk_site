@@ -165,7 +165,9 @@ export default function Home() {
                                     Абітурієнту
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a className="dropdown-item" href="#">Правила прийому</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/admission-rules">Правила прийому</Link>
+                                        </li>
                                         <li><a className="dropdown-item" href="#">Наші професії</a></li>
                                         <li><a className="dropdown-item" href="#">Приймальна комісія</a></li>
                                     </ul>

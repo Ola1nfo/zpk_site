@@ -1,6 +1,6 @@
 import './History.scss'
-import Footer from '../../components/Footer/Footer';
-import Header from '../../components/Header/Header'
+import Footer from '../../../components/Footer/Footer';
+import Header from '../../../components/Header/Header'
 import { useState } from 'react'
 import AspectRatio from "@mui/joy/AspectRatio";
 import Grid from "@mui/joy/Grid";

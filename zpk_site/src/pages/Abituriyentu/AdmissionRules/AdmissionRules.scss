@@ -1,0 +1,25 @@
+.detail{
+    text-align: center;
+    margin-top: 100px;
+
+    .btn-pravyla{
+        background-color: var(--blue-color);
+        color: #fff;
+        border-radius: 15px;
+        margin: 30px 0px;
+
+        &:hover{
+          background-color: #fff;
+          color: var(--blue-color);
+        }
+    }
+
+    .tabs-section{
+        .tabList{
+            display: flex;
+            justify-content: center;
+        }
+    }
+    
+}
+
