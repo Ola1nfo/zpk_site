@@ -1,25 +1,152 @@
-.detail{
-    text-align: center;
-    margin-top: 100px;
+.detail {
+  text-align: center;
+  margin-top: 150px;
+  color: var(--hover-btn-grey-color);
 
-    .btn-pravyla{
-        background-color: var(--blue-color);
-        color: #fff;
-        border-radius: 15px;
-        margin: 30px 0px;
+  .btn-pravyla {
+    background-color: var(--blue-color);
+    color: #fff;
+    border-radius: 15px;
+    margin: 30px 0;
 
-        &:hover{
-          background-color: #fff;
+    &:hover {
+      background-color: #fff;
+      color: var(--blue-color);
+      border-color: var(--blue-color);
+    }
+  }
+
+  .tabs-section {
+    .tabList {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      button {
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+
+    .profession-card {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      border: 1px solid #ddd;
+      border-radius: 0.5rem;
+      transition: box-shadow 0.3s, border-color 0.3s;
+      margin-top: 20px;
+
+      &:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border-color: #b0b0b0;
+      }
+
+      .card-image {
+        width: 50%;
+        max-width: 500px;
+        flex-shrink: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 10px 0 0 10px;
+        }
+      }
+
+      .card-content {
+        flex: 1;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: left;
+
+        .card-title {
+          font-size: 28px;
+          font-weight: 600;
           color: var(--blue-color);
+          margin-bottom: 10px;
         }
-    }
 
-    .tabs-section{
-        .tabList{
-            display: flex;
-            justify-content: center;
+        .card-text {
+          font-size: 16px;
+          margin-bottom: 10px;
+
+          ul {
+            padding-left: 15px;
+
+            li {
+              margin-bottom: 5px;
+
+              span{
+                color: var(--hover-blue-color);
+              }
+            }
+          }
         }
+      }
     }
-    
+  }
+
+  @media (max-width: 992px) {
+    .tabs-section {
+      .profession-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .card-image {
+          width: 100%;
+          height: 300px;
+
+          img {
+            border-radius: 10px 10px 0 0;
+          }
+        }
+
+        .card-content {
+          .card-title {
+            font-size: 22px;
+            text-align: center;
+          }
+          .card-text {
+            font-size: 14px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .tabs-section {
+      .tabList {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .profession-card {
+        .card-image {
+          height: 200px;
+        }
+
+        .card-content {
+          padding: 0.5rem;
+
+          .card-title {
+            font-size: 20px;
+            text-align: center;
+          }
+          .card-text {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
 }
-
