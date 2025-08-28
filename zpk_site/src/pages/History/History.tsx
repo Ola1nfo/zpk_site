@@ -1,17 +1,26 @@
-import './History.scss';
-import Header from '../../components/Header/Header';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Thumbs } from 'swiper/modules';
-import { useState } from 'react';
-import './History.scss';
+import './History.scss'
+import Footer from '../../components/Footer/Footer';
+import Header from '../../components/Header/Header'
+import { useState } from 'react'
+import AspectRatio from "@mui/joy/AspectRatio";
+import Grid from "@mui/joy/Grid";
+import IconButton from "@mui/joy/IconButton";
+import ArrowBack from "@mui/icons-material/ArrowBack";
+import ArrowForward from "@mui/icons-material/ArrowForward";
 
-const photos = [
-  '/images/photo1.jpg',
-  '/images/photo2.jpg',
-  '/images/photo3.jpg',
-  '/images/photo4.jpg',
-  '/images/photo5.jpg',
-];
+
+
+//img
+import photo1 from "./img/photo1.jpg"
+import photo2 from "./img/photo2.jpg"
+import photo3 from "./img/photo3.jpg"
+import photo4 from "./img/photo4.gif"
+import photo5 from "./img/photo5.jpg"
+import photo6 from "./img/photo6.jpg"
+import photo7 from "./img/photo7.jpg"
+
+
+const photos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7];
 
 interface TimelineItem {
   year: string;
@@ -98,7 +107,11 @@ const data: TimelineItem[] = [
 ];
 
 export default function History() {
-  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const prevSlide = () =>
+    setCurrentIndex((prev) => (prev === 0 ? photos.length - 1 : prev - 1));
+  const nextSlide = () =>
+    setCurrentIndex((prev) => (prev === photos.length - 1 ? 0 : prev + 1));
 
   return (
     <div>
@@ -116,36 +129,36 @@ export default function History() {
             </div>
           ))}
       </section>
-      <section className="photo-gallery">
-        <Swiper
-          modules={[Navigation, Thumbs]}
-          navigation
-          thumbs={{ swiper: thumbsSwiper }}
-          className="main-slider"
-        >
+      
+      <div className="photo-gallery">
+        <div className="main-photo container">
+          <img src={photos[currentIndex]} alt={`Фото ${currentIndex + 1}`} />
+          <IconButton className="nav-btn prev" onClick={prevSlide}>
+            <ArrowBack />
+          </IconButton>
+          <IconButton className="nav-btn next" onClick={nextSlide}>
+            <ArrowForward />
+          </IconButton>
+        </div>
+        <Grid container spacing={2} className="thumbnails">
           {photos.map((src, i) => (
-            <SwiperSlide key={i}>
-              <img src={src} alt={`Фото ${i + 1}`} />
-            </SwiperSlide>
+            <Grid key={i} xs={6} sm={4} md={2}>
+              <AspectRatio
+                ratio="1"
+                variant={i === currentIndex ? "solid" : "outlined"}
+              >
+                <img
+                  src={src}
+                  alt={`Мініатюра ${i + 1}`}
+                  onClick={() => setCurrentIndex(i)}
+                  className={i === currentIndex ? "thumb active" : "thumb"}
+                />
+              </AspectRatio>
+            </Grid>
           ))}
-        </Swiper>
-
-        <Swiper
-          onSwiper={setThumbsSwiper}
-          spaceBetween={10}
-          slidesPerView={6}
-          watchSlidesProgress
-          className="thumbs-slider"
-        >
-          {photos.map((src, i) => (
-            <SwiperSlide key={i}>
-              <img src={src} alt={`Мініатюра ${i + 1}`} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </section>
-
-
+        </Grid>
+      </div>
+      <Footer />
     </div>
   );
 }

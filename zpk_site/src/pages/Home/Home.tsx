@@ -1,4 +1,5 @@
 import './Home.scss'
+import Footer from '../../components/Footer/Footer';
 import { Link } from 'react-router'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -12,6 +13,7 @@ import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 
+//img
 import Logo from '../../components/img/logo.png'
 import instagramLogo from '../../components/img/instagramLogo.png'
 import facebookLogo from '../../components/img/facebookLogo.png'
@@ -36,7 +38,6 @@ import imgPerukar from '../../components/Header/img/perukar.jpg'
 import imgMontashnuk from '../../components/Header/img/montashnuk.jpg'
 import imgOperatorDron from '../../components/Header/img/operatorDron.jpg'
 import imgDerevoobrobnuk from '../../components/Header/img/derevoobrobnuk.jpg'
-import QRInstagram from '../../components/Header/img/QRInstagram.png'
 
 const advantages = [
   { icon: icon1, label: 'актуальні професії' },
@@ -150,7 +151,9 @@ export default function Home() {
                                         <li>
                                             <Link className="dropdown-item" to="/history">Наша історія</Link>
                                         </li>
-                                        <li><a className="dropdown-item" href="#">Наша символіка</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/symbols">Наша символіка</Link>
+                                        </li>
                                         <li><a className="dropdown-item" href="#">Адіміністрація</a></li>
                                     </ul>
                                 </li>
@@ -491,35 +494,7 @@ export default function Home() {
                     <FlyToMarker />
                 </MapContainer>
             </div>
-            <footer className="footer">
-                <div className="footer-content">
-                    <div className="footer-column">
-                        <h2 className="footer-logo">Здолбунівський професійний коледж</h2>
-                        <p className="footer__slogan">Долучайся до нашої онлайн-сім'ї в соцмережах</p>
-                        <div className="footer-social">
-                            <div className='linkBtn'>
-                                <a className="nav-link" href="https://www.instagram.com/zpkpto/"><img className='instagramLogo' src={ instagramLogo } alt="instagramLogo" /></a>
-                                <a className="nav-link" href="https://www.facebook.com/zvpuzt/"><img className='instagramLogo' src={ facebookLogo } alt="facebookLogo" /></a>
-                                <a className="nav-link" href="#"><img className='mailLogo' src={ mailLogo } alt="mailLogo" /></a>
-                            </div>
-                        </div>
-                        <img src={QRInstagram} alt="QR-код" className="footer-qr" />
-                    </div>
-                    <div className="footer-column">
-                        <h3>Навігація</h3>
-                        <ul>
-                            <li><a href="#">Новини</a></li>
-                            <li><a href="#">Наші професії</a></li>
-                            <li><a href="#">Приймальна комісія</a></li>
-                            <li><a href="#">Зв'язатись з нами</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="footer-bottom">
-                    <span>&copy; Створено ЗПК</span>
-                    <span>Всі права захищено</span>
-                </div>
-            </footer>
+            <Footer />
 
         </div>      
     )

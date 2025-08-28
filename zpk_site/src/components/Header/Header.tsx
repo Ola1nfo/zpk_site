@@ -26,7 +26,9 @@ export default function Header() {
                                         <li>
                                             <Link className="dropdown-item" to="/history">Наша історія</Link>
                                         </li>
-                                        <li><a className="dropdown-item" href="#">Наша символіка</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/symbols">Наша символіка</Link>
+                                        </li>
                                         <li><a className="dropdown-item" href="#">Адіміністрація</a></li>
                                     </ul>
                                 </li>
