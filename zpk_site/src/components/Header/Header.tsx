@@ -43,7 +43,9 @@ export default function Header() {
                                         <li>
                                             <Link className="dropdown-item" to="/admission-rules">Правила прийому</Link>
                                         </li>
-                                        <li><a className="dropdown-item" href="#">Наші професії</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/our-professions">Наші професії</Link>
+                                        </li>
                                         <li><a className="dropdown-item" href="#">Приймальна комісія</a></li>
                                     </ul>
                                 </li>

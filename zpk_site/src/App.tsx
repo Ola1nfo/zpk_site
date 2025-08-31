@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home"
 import History from './pages/AboutUs/History/History'
 import Symbols from "./pages/AboutUs/Symbols/Symbols"
 import AdmissionRules from "./pages/Abituriyentu/AdmissionRules/AdmissionRules"
+import OurProfessions from "./pages/Abituriyentu/OurProfessions/OurProfessions";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path='/history' element={<History />}/>
         <Route path='/symbols' element={<Symbols />}/>
         <Route path='/admission-rules' element={<AdmissionRules />}/>
+        <Route path='/our-professions' element={<OurProfessions />}/>
       </Routes>
     </Router>
   );
