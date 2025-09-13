@@ -5,6 +5,7 @@ import History from './pages/AboutUs/History/History'
 import Symbols from "./pages/AboutUs/Symbols/Symbols"
 import AdmissionRules from "./pages/Abituriyentu/AdmissionRules/AdmissionRules"
 import OurProfessions from "./pages/Abituriyentu/OurProfessions/OurProfessions";
+import News from "./pages/News/News";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path='/symbols' element={<Symbols />}/>
         <Route path='/admission-rules' element={<AdmissionRules />}/>
         <Route path='/our-professions' element={<OurProfessions />}/>
+        <Route path='/news' element={<News />}/>
       </Routes>
     </Router>
   );
