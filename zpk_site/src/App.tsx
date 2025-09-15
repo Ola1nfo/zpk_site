@@ -6,6 +6,7 @@ import Symbols from "./pages/AboutUs/Symbols/Symbols"
 import AdmissionRules from "./pages/Abituriyentu/AdmissionRules/AdmissionRules"
 import OurProfessions from "./pages/Abituriyentu/OurProfessions/OurProfessions";
 import News from "./pages/News/News";
+import PriymalnaKomisiya from "./pages/Abituriyentu/PriymalnaKomisiya/PriymalnaKomisiya";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/admission-rules' element={<AdmissionRules />}/>
         <Route path='/our-professions' element={<OurProfessions />}/>
         <Route path='/news' element={<News />}/>
+        <Route path='/priymalna-komisiya' element={<PriymalnaKomisiya />}/>
       </Routes>
     </Router>
   );

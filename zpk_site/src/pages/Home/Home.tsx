@@ -171,7 +171,9 @@ export default function Home() {
                                         <li>
                                             <Link className="dropdown-item" to="/our-professions">Наші професії</Link>
                                         </li>
-                                        <li><a className="dropdown-item" href="#">Приймальна комісія</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/priymalna-komisiya">Приймальна комісія</Link>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li className="nav-item dropdown">
