@@ -1,0 +1,39 @@
+.rozklad-urokiv{
+    margin-top: 150px;
+    text-align: center;
+    margin-bottom: 50px;
+
+    h4{
+        font-size: 36px;
+        text-align: center;
+    }
+
+    p{
+        font-size: 18px;
+        color: #666;
+        margin: 30px;
+    }
+
+    .btn-uroki{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, auto);
+        gap: 10px;
+
+        a{
+            background-color: var(--blue-color);
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px;
+            text-decoration: none;
+            color: #fff;
+
+            &:hover{
+                background-color: #fff;
+                color: var(--blue-color);
+                border: 1px solid var(--blue-color);
+            }
+        }
+
+    }
+}

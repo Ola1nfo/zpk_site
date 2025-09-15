@@ -56,8 +56,12 @@ export default function Header() {
                                     Навчання
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a className="dropdown-item" href="#">Розклад дзвінків</a></li>
-                                        <li><a className="dropdown-item" href="#">Розклад уроків</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/rozklad-dzvinkiv">Розклад дзвінків</Link>
+                                        </li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/rozklad-urokiv">Розклад уроків</Link>
+                                        </li>
                                         <li><a className="dropdown-item" href="#">Дистанційне навчання</a></li>
                                         <li><a className="dropdown-item" href="#">НМТ</a></li>
                                         <li><a className="dropdown-item" href="#">PISA</a></li>
