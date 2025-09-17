@@ -36,12 +36,12 @@
         bottom: 5px;
         width: 0;
         height: 3px;
-        background-color: var(--blue-color);
+        background-color: var(--light-violet-color);
         transition: width 0.3s ease;
       }
 
       &:hover {
-        color: var(--blue-color);
+        color: var(--light-violet-color);
 
         &::after {
           width: 100%;
@@ -50,7 +50,7 @@
     }
 
     .dropdown:hover > .nav-link {
-      color: var(--blue-color);
+      color: var(--light-violet-color);
 
       &::after {
         width: 100%;
@@ -76,13 +76,13 @@
       }
 
       &:hover::before {
-        border-top-color: var(--blue-color);
+        border-top-color: var(--light-violet-color);
         transform: translateY(-50%) rotate(180deg);
       }
     }
 
     .dropdown:hover .dropdown-toggle-arrow::before {
-      border-top-color: var(--blue-color);
+      border-top-color: var(--light-violet-color);
       transform: translateY(-50%) rotate(180deg);
     }
 
@@ -103,7 +103,7 @@
         color: var(--btn-grey-color);
 
         &:hover {
-          background-color: #f1f1f1;
+          background-color: #fff;
           color: var(--blue-color);
         }
       }

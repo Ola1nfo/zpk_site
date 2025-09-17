@@ -7,8 +7,8 @@ import Logo from '../img/logo.png'
 export default function Header() {
 
     return (
-        <header className="container header">
-                <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+        <header className="header">
+                <nav className="navbar navbar-expand-lg navbar-light">
                     <Link to="/">
                         <img className="logo" src={Logo} alt="logo" />
                     </Link>
@@ -62,9 +62,10 @@ export default function Header() {
                                         <li>
                                             <Link className="dropdown-item" to="/rozklad-urokiv">Розклад уроків</Link>
                                         </li>
-                                        <li><a className="dropdown-item" href="#">Дистанційне навчання</a></li>
                                         <li><a className="dropdown-item" href="#">НМТ</a></li>
-                                        <li><a className="dropdown-item" href="#">PISA</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/PISA">PISA</Link>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li className="nav-item dropdown">
@@ -72,8 +73,9 @@ export default function Header() {
                                     Виховання
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a className="dropdown-item" href="#">Гуртки</a></li>
-                                        <li><a className="dropdown-item" href="#">Музей</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/museum">Музей</Link>
+                                        </li>
                                         <li><a className="dropdown-item" href="#">Класному керівнику</a></li>
                                         <li><a className="dropdown-item" href="#">Газета "Лідер"</a></li>
                                         <li><a className="dropdown-item" href="#">Самоврядування</a></li>

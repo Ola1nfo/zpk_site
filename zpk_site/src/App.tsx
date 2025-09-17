@@ -10,6 +10,8 @@ import PriymalnaKomisiya from "./pages/Abituriyentu/PriymalnaKomisiya/PriymalnaK
 import RozkladDzvinkiv from "./pages/Study/RozkladDzvinkiv/RozkladDzvinkiv";
 import RozkladUrokiv from "./pages/Study/RozkladUrokiv/RozkladUrokiv"
 import RozkladGroup from './pages/Study/RozkladUrokiv/RozkladGroup';
+import PISA from "./pages/Study/PISA/PISA"
+import Museum from "./pages/Education/Museum/Museum"
 
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
         <Route path='/rozklad-dzvinkiv' element={<RozkladDzvinkiv />}/>
         <Route path='/rozklad-urokiv' element={<RozkladUrokiv />}/>
         <Route path="/rozklad/:groupId" element={<RozkladGroup />} />
+        <Route path="/PISA" element={<PISA />} />
+        <Route path="/museum" element={<Museum />} />
       </Routes>
     </Router>
   );

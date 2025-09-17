@@ -1,29 +1,40 @@
 import './RozkladGroup.scss'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Header from "../../../components/Header/Header"
 import Footer from "../../../components/Footer/Footer"
 
 export default function RozkladGroup() {
     const { groupId } = useParams();
+    const navigate = useNavigate();
 
-    // Розклад для всіх груп
     const schedules = {
         1: [
-            { time: "08:30 - 09:15", subject: "Математика" },
-            { time: "09:25 - 10:10", subject: "Фізика" },
-            { time: "10:30 - 11:15", subject: "Інформатика" }
+            {
+                day: "Понеділок",
+                lessons: [
+                    { subject: "Математика", room: "302" },
+                    { subject: "Фізика", room: "304" },
+                    { subject: "Інформатика", room: "216" }
+                ]
+            },
+            {
+                day: "Вівторок",
+                lessons: [
+                    { subject: "Хімія", room: "210" },
+                    { subject: "Біологія", room: "212" }
+                ]
+            }
         ],
         2: [
-            { time: "08:30 - 09:15", subject: "Хімія" },
-            { time: "09:25 - 10:10", subject: "Біологія" },
-            { time: "10:30 - 11:15", subject: "Географія" }
-        ],
-        3: [
-            { time: "08:30 - 09:15", subject: "Історія" },
-            { time: "09:25 - 10:10", subject: "Література" },
-            { time: "10:30 - 11:15", subject: "Математика" }
-        ],
-        // ... можна додати інші групи до 22
+            {
+                day: "Понеділок",
+                lessons: [
+                    { subject: "Хімія", room: "210" },
+                    { subject: "Біологія", room: "212" },
+                    { subject: "Географія", room: "220" }
+                ]
+            }
+        ]
     };
 
     const scheduleForGroup = schedules[groupId] || [];
@@ -38,22 +49,44 @@ export default function RozkladGroup() {
                     <table className="schedule-table">
                         <thead>
                             <tr>
-                                <th>Час</th>
+                                <th>День</th>
                                 <th>Предмет</th>
+                                <th>Аудиторія</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {scheduleForGroup.map((lesson, index) => (
-                                <tr key={index}>
-                                    <td>{lesson.time}</td>
-                                    <td>{lesson.subject}</td>
-                                </tr>
+                            {scheduleForGroup.map((dayBlock, dayIndex) => (
+                                <>
+                                    {dayBlock.lessons.map((lesson, lessonIndex) => {
+                                        const isLastLesson = lessonIndex === dayBlock.lessons.length - 1;
+                                        return (
+                                            <tr
+                                                key={`${dayIndex}-${lessonIndex}`}
+                                                className={isLastLesson ? "day-separator" : ""}
+                                            >
+                                                {lessonIndex === 0 && (
+                                                    <td
+                                                        rowSpan={dayBlock.lessons.length}
+                                                        className="day-cell"
+                                                    >
+                                                        {dayBlock.day}
+                                                    </td>
+                                                )}
+                                                <td>{lesson.subject}</td>
+                                                <td>{lesson.room}</td>
+                                            </tr>
+                                        );
+                                    })}
+                                </>
                             ))}
                         </tbody>
                     </table>
                 ) : (
                     <p>Розклад не знайдено для цієї групи.</p>
                 )}
+                <button className="back-btn" onClick={() => navigate(-1)}>
+                    Повернутися назад
+                </button>
             </div>
             <Footer/>
         </div>

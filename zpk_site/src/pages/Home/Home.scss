@@ -5,7 +5,7 @@
   .navbar {
     padding: 0;
     flex-wrap: wrap;
-    background-color: #4444447e;
+    background-color: #aaa;
 
     .logo {
       width: 80px;
@@ -103,7 +103,7 @@
         color: var(--btn-grey-color);
 
         &:hover {
-          background-color: #f1f1f1;
+          background-color: #fff;
           color: var(--blue-color);
         }
       }

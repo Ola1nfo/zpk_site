@@ -133,9 +133,9 @@ export default function Home() {
     const gap = 30;   
 
     return (
-        <div className='container-fluid'>
-            <header className="container headerHome">
-                <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+        <div className=''>
+            <header className="headerHome">
+                <nav className="navbar navbar-expand-lg navbar-light">
                     <a href="#"><img className='logo' src={Logo} alt="logo" /></a>
                     <div className="container">
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -187,9 +187,10 @@ export default function Home() {
                                         <li>
                                             <Link className="dropdown-item" to="/rozklad-urokiv">Розклад уроків</Link>
                                         </li>
-                                        <li><a className="dropdown-item" href="#">Дистанційне навчання</a></li>
                                         <li><a className="dropdown-item" href="#">НМТ</a></li>
-                                        <li><a className="dropdown-item" href="#">PISA</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/PISA">PISA</Link>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li className="nav-item dropdown">
@@ -197,8 +198,9 @@ export default function Home() {
                                     Виховання
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a className="dropdown-item" href="#">Гуртки</a></li>
-                                        <li><a className="dropdown-item" href="#">Музей</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/museum">Музей</Link>
+                                        </li>
                                         <li><a className="dropdown-item" href="#">Класному керівнику</a></li>
                                         <li><a className="dropdown-item" href="#">Газета "Лідер"</a></li>
                                         <li><a className="dropdown-item" href="#">Самоврядування</a></li>

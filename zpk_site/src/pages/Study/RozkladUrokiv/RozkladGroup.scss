@@ -1,6 +1,65 @@
-.rozklad-group{
+.rozklad-group {
     margin-top: 150px;
     margin-bottom: 50px;
+    text-align: center;
 
-    
+    h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .schedule-table {
+        width: 80%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        font-size: 16px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+        th {
+            background-color: var(--light-violet-color);
+            color: #000;
+            padding: 14px 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: left;
+        }
+
+        td {
+            background-color: var(--blue-color);
+            color: #fff;
+            padding: 12px 30px;
+            line-height: 5px;
+            text-align: left;
+        }
+
+        .day-cell {
+            font-weight: bold;
+            background-color: var(--blue-color);
+            width: 300px;
+            border-bottom: 1px solid #fff;
+        }
+
+        tr.day-separator td {
+            border-bottom: 1px solid #fff;
+            padding-bottom: 30px;
+        }
+    }
+
+    .back-btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: var(--blue-color);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: #fff;
+            color: var(--blue-color);
+            border: 1px solid var(--blue-color);
+        }
+    }
 }
