@@ -12,6 +12,8 @@ import RozkladUrokiv from "./pages/Study/RozkladUrokiv/RozkladUrokiv"
 import RozkladGroup from './pages/Study/RozkladUrokiv/RozkladGroup';
 import PISA from "./pages/Study/PISA/PISA"
 import Museum from "./pages/Education/Museum/Museum"
+import KlasnyyKerivnyk from "./pages/Education/KlasnyyKerivnyk/KlasnyyKerivnyk"
+import Samovryaduvannya from "./pages/Education/Samovryaduvannya/Samovryaduvannya"
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
         <Route path="/rozklad/:groupId" element={<RozkladGroup />} />
         <Route path="/PISA" element={<PISA />} />
         <Route path="/museum" element={<Museum />} />
+        <Route path="/klasnyy-kerivnyk" element={<KlasnyyKerivnyk />} />
+        <Route path="/samovryaduvannya" element={<Samovryaduvannya />} />
       </Routes>
     </Router>
   );

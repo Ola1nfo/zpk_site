@@ -1,4 +1,7 @@
 import './Footer.scss'
+import { Link } from 'react-router'
+import { useNavigate } from 'react-router-dom';
+
 
 //img
 import QRInstagram from '../../components/Header/img/QRInstagram.png'
@@ -7,6 +10,16 @@ import facebookLogo from '../../components/img/facebookLogo.png'
 import mailLogo from '../../components/img/mailLogo.png'
 
 export default function Footer() {
+    const navigate = useNavigate();
+
+    const handleContactClick = () => {
+    navigate('/contact');
+    setTimeout(() => {
+      const element = document.getElementById('contact');
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  }
+
     return (
         <footer className="footer">
             <div className="footer-content">
@@ -25,10 +38,10 @@ export default function Footer() {
                 <div className="footer-column">
                     <h3>Навігація</h3>
                     <ul>
-                        <li><a href="#">Новини</a></li>
-                        <li><a href="#">Наші професії</a></li>
-                        <li><a href="#">Приймальна комісія</a></li>
-                        <li><a href="#">Зв'язатись з нами</a></li>
+                        <li><Link to="/news">Новини</Link></li>
+                        <li><Link to="/our-professions">Наші професії</Link></li>
+                        <li><Link to="/priymalna-komisiya">Приймальна комісія</Link></li>
+                        <li><button onClick={handleContactClick}>Зв'язатись з нами</button></li>
                     </ul>
                 </div>
             </div>

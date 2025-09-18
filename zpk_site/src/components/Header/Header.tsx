@@ -49,6 +49,9 @@ export default function Header() {
                                         <li>
                                             <Link className="dropdown-item" to="/priymalna-komisiya">Приймальна комісія</Link>
                                         </li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/admission-rules">Оголошення для убітурієнтів</Link>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li className="nav-item dropdown">
@@ -76,9 +79,13 @@ export default function Header() {
                                         <li>
                                             <Link className="dropdown-item" to="/museum">Музей</Link>
                                         </li>
-                                        <li><a className="dropdown-item" href="#">Класному керівнику</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/klasnyy-kerivnyk">Класному керівнику</Link>
+                                        </li>
                                         <li><a className="dropdown-item" href="#">Газета "Лідер"</a></li>
-                                        <li><a className="dropdown-item" href="#">Самоврядування</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/samovryaduvannya">Самоврядування</Link>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li className="nav-item dropdown">

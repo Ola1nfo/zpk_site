@@ -7,6 +7,7 @@ import Tab from '@mui/joy/Tab';
 import TabPanel from '@mui/joy/TabPanel';
 import Card from '@mui/joy/Card';
 import Typography from '@mui/joy/Typography';
+import { Link } from 'react-router'
 
 
 //img
@@ -72,7 +73,7 @@ export default function AdmissionRules() {
                                             </blockquote>
                                         </div>
                                     </Typography>
-                                    <a href='#' className="btn btn-pravyla me-2">Опис професій</a>
+                                    <Link to='/our-professions' className="btn btn-pravyla me-2">Опис професій</Link>
                                 </div>
                             </Card>
                         </TabPanel>
@@ -108,7 +109,7 @@ export default function AdmissionRules() {
                                                 </blockquote>
                                             </div>
                                     </Typography>
-                                    <a href='#' className="btn btn-pravyla me-2">Опис професій</a>
+                                    <Link to='/our-professions' className="btn btn-pravyla me-2">Опис професій</Link>
                                 </div>
                             </Card>
                         </TabPanel>

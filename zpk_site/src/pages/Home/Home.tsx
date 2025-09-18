@@ -174,6 +174,9 @@ export default function Home() {
                                         <li>
                                             <Link className="dropdown-item" to="/priymalna-komisiya">Приймальна комісія</Link>
                                         </li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/admission-rules">Оголошення для убітурієнтів</Link>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li className="nav-item dropdown">
@@ -201,9 +204,13 @@ export default function Home() {
                                         <li>
                                             <Link className="dropdown-item" to="/museum">Музей</Link>
                                         </li>
-                                        <li><a className="dropdown-item" href="#">Класному керівнику</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/klasnyy-kerivnyk">Класному керівнику</Link>
+                                        </li>
                                         <li><a className="dropdown-item" href="#">Газета "Лідер"</a></li>
-                                        <li><a className="dropdown-item" href="#">Самоврядування</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/samovryaduvannya">Самоврядування</Link>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li className="nav-item dropdown">
@@ -271,7 +278,7 @@ export default function Home() {
                                 <div className="carousel-caption text-white">
                                     <h2>Вступна кампанія - 2025 у розпалі!</h2>
                                     <p>Запрошуємо до нас на навчання</p>
-                                    <a className="btn btn-dark mt-3" href="#">Ознайомитися з професіями</a>
+                                    <Link className="btn btn-dark mt-3" to="/our-professions">Ознайомитися з професіями</Link>
                                 </div>          
                             </div>
                         </div>
@@ -280,7 +287,7 @@ export default function Home() {
                                 <div className="carousel-caption text-white">
                                     <h2>Приймальна комісія</h2>
                                     <p>Чекаємо на вступників з повним пакетом докумнетів</p>
-                                    <a className="btn btn-dark mt-3" href="#">Дізнатися більше</a>
+                                    <Link className="btn btn-dark mt-3" to="/priymalna-komisiya">Дізнатися більше</Link>
                                 </div>
                             </div>
                         </div>
@@ -445,7 +452,7 @@ export default function Home() {
                     </a>
                 </div>
             </section>
-            <section className="contactsFormBlock py-5">
+            <section id='contact' className="contactsFormBlock py-5">
                 <div className="container">
                     <div className="row align-items-center g-4">
                     <div className="col-lg-6 text-white">
