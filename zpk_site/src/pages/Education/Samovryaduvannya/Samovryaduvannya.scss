@@ -1,51 +1,36 @@
 .samovryad-page {
-  padding: 30px 0;
+    padding: 2rem;
 
-  h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 40px;
-    color: #2c3e50;
-  }
-
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    justify-items: center;
-  }
-
-  .card {
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    text-align: center;
-    padding: 25px 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-    color: #2c3e50;
-
-    &:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    h2 {
+        text-align: center;
+        margin-bottom: 2rem;
     }
 
-    img {
-      width: 100px;
-      height: auto;
-      margin-bottom: 15px;
-      transition: transform 0.3s ease;
-    }
+    .samovryad-section {
+        margin-bottom: 3rem;
 
-    &:hover img {
-      transform: scale(1.1);
-    }
+        .section-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
 
-    p {
-      font-size: 1rem;
-      font-weight: 500;
-      color: #34495e;
-      margin-top: 10px;
+            img {
+                width: 400px;
+                border-radius: 12px;
+            }
+
+            p {
+                flex: 1;
+                font-size: 16px;
+                line-height: 1.5;
+            }
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+                img {
+                    width: 100%;
+                }
+            }
+        }
     }
-  }
 }

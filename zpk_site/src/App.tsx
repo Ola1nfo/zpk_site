@@ -14,6 +14,15 @@ import PISA from "./pages/Study/PISA/PISA"
 import Museum from "./pages/Education/Museum/Museum"
 import KlasnyyKerivnyk from "./pages/Education/KlasnyyKerivnyk/KlasnyyKerivnyk"
 import Samovryaduvannya from "./pages/Education/Samovryaduvannya/Samovryaduvannya"
+import OgoloshennyaDlyaAbituriientiv from "./pages/Abituriyentu/OgoloshennyaDlyaAbituriientiv/OgoloshennyaDlyaAbituriientiv"
+import NewspaperLider from "./pages/Education/NewspaperLider/NewspaperLider";
+import MetodykaPorady from "./pages/Metodyka/MetodykaPorady/MetodykaPorady";
+import NormatyvnaBaza from "./pages/Metodyka/NormatyvnaBaza/NormatyvnaBaza"
+import PablicInfo from "./pages/PablicInfo/PablicInfo"
+import Psycholog from "./pages/Psycholog/Psycholog"
+import Bullying from "./pages/Psycholog/pages/Bullying"
+import War from "./pages/Psycholog/pages/War"
+import Trafficking from "./pages/Psycholog/pages/Trafficking"
 
 
 function App() {
@@ -34,6 +43,15 @@ function App() {
         <Route path="/museum" element={<Museum />} />
         <Route path="/klasnyy-kerivnyk" element={<KlasnyyKerivnyk />} />
         <Route path="/samovryaduvannya" element={<Samovryaduvannya />} />
+        <Route path="/ogoloshennya-dlya-abituriientiv" element={<OgoloshennyaDlyaAbituriientiv />} />
+        <Route path="/newspaper-lider" element={<NewspaperLider />} />
+        <Route path="/metodyka-porady" element={<MetodykaPorady />} />
+        <Route path="/normatyvna-baza" element={<NormatyvnaBaza />} />
+        <Route path="/pablic-info" element={<PablicInfo />} />
+        <Route path="/psycholog" element={<Psycholog />} />
+        <Route path="/psycholog/bullying" element={<Bullying />} />
+        <Route path="/psycholog/war" element={<War />} />
+        <Route path="/psycholog/trafficking" element={<Trafficking />} />
       </Routes>
     </Router>
   );

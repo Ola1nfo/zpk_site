@@ -1,0 +1,165 @@
+.psycholog {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  .title {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--btn-grey-color);
+  }
+
+  .psycholog-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+
+    .psycholog-img {
+      width: 250px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .psycholog-info {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #333;
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      ul {
+        margin: 0 0 20px 20px;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+          margin-bottom: 10px;
+          position: relative;
+          padding-left: 18px;
+
+          &::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--blue-color);
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  .psycholog-contact {
+    background: #f9fafc;
+    border-left: 5px solid var(--blue-color);
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+    h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    p {
+      margin-bottom: 8px;
+      font-size: 1rem;
+
+      strong {
+        color: #000;
+      }
+    }
+  }
+
+  .psycholog-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+
+    .psycholog-link {
+        display: inline-block;
+        padding: 12px 20px;
+        background: var(--blue-color);
+        color: #fff;
+        border-radius: 10px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: 0.3s ease;
+
+        &:hover {
+        background: #fff;
+        color: var(--blue-color);
+        border: 1px solid var(--blue-color);
+        transform: translateY(-2px);
+        }
+    }
+    }
+
+
+  // Адаптивність
+  @media (max-width: 768px) {
+    .psycholog-card {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+
+      .psycholog-img {
+        width: 180px;
+      }
+    }
+
+    .psycholog-contact {
+      text-align: center;
+    }
+  }
+}
+
+.bullying{
+    text-align: center;
+}
+
+.back-button-container {
+    margin-top: 20px;
+    text-align: center;
+
+    .back-button {
+        padding: 10px 20px;
+        background-color: var(--blue-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 30px;
+
+        &:hover {
+            background-color: #fff;
+            color: var(--blue-color);
+            border: 1px solid var(--blue-color);
+        }
+    }
+}
+
+.link-style{
+    text-decoration: none;
+    color: var(--btn-grey-color);
+
+    &:hover{
+        color: var(--blue-color);
+    }
+}
+
+

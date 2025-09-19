@@ -175,7 +175,7 @@ export default function Home() {
                                             <Link className="dropdown-item" to="/priymalna-komisiya">Приймальна комісія</Link>
                                         </li>
                                         <li>
-                                            <Link className="dropdown-item" to="/admission-rules">Оголошення для убітурієнтів</Link>
+                                            <Link className="dropdown-item" to="/ogoloshennya-dlya-abituriientiv">Оголошення для убітурієнтів</Link>
                                         </li>
                                     </ul>
                                 </li>
@@ -207,7 +207,9 @@ export default function Home() {
                                         <li>
                                             <Link className="dropdown-item" to="/klasnyy-kerivnyk">Класному керівнику</Link>
                                         </li>
-                                        <li><a className="dropdown-item" href="#">Газета "Лідер"</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/newspaper-lider">Газета "Лідер"</Link>
+                                        </li>
                                         <li>
                                             <Link className="dropdown-item" to="/samovryaduvannya">Самоврядування</Link>
                                         </li>
@@ -218,16 +220,19 @@ export default function Home() {
                                     Методика
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a className="dropdown-item" href="#">Методичні поради</a></li>
-                                        <li><a className="dropdown-item" href="#">Нормативно-правова база</a></li>
-                                        <li><a className="dropdown-item" href="#">Атестація</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/metodyka-porady">Методичні поради</Link>
+                                        </li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/normatyvna-baza">Нормативно-правова база</Link>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Публічна інформація</a>
+                                    <Link className="nav-link" to="/pablic-info">Публічна інформація</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Сторінка психолога</a>
+                                    <Link className="nav-link" to="/psycholog">Сторінка психолога</Link>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">Відеогалерея</a>
@@ -296,7 +301,7 @@ export default function Home() {
                                 <div className="carousel-caption text-white">
                                     <h2>Оголошення для абітурієнтів</h2>
                                     <p>Актуальна інформація для Вас</p>
-                                    <a className="btn btn-dark mt-3" href="#">Детальніше</a>
+                                    <Link className="btn btn-dark mt-3" to="/ogoloshennya-dlya-abituriientiv">Детальніше</Link>
                                 </div>
                             </div>
                         </div>
