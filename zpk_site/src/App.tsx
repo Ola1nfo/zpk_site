@@ -23,6 +23,12 @@ import Psycholog from "./pages/Psycholog/Psycholog"
 import Bullying from "./pages/Psycholog/pages/Bullying"
 import War from "./pages/Psycholog/pages/War"
 import Trafficking from "./pages/Psycholog/pages/Trafficking"
+import PeopleSupport from "./pages/Psycholog/pages/PeopleSupport"
+import Stres from "./pages/Psycholog/pages/Stres"
+import AlkoNarko from "./pages/Psycholog/pages/AlkoNarko"
+import FreeSupport from "./pages/Psycholog/pages/FreeSupport"
+import SuicidalBehavior from './pages/Psycholog/pages/SuicidalBehavior'
+import AdviceParents from './pages/Psycholog/pages/AdviceParents'
 
 
 function App() {
@@ -52,6 +58,12 @@ function App() {
         <Route path="/psycholog/bullying" element={<Bullying />} />
         <Route path="/psycholog/war" element={<War />} />
         <Route path="/psycholog/trafficking" element={<Trafficking />} />
+        <Route path="/psycholog/people-support" element={<PeopleSupport />} />
+        <Route path="/psycholog/stres" element={<Stres />} />
+        <Route path="/psycholog/alko-narko" element={<AlkoNarko />} />
+        <Route path="/psycholog/free-support" element={<FreeSupport />} />
+        <Route path="/psycholog/suicidal-behavior" element={<SuicidalBehavior />} />
+        <Route path="/psycholog/advice-parents" element={<AdviceParents />} />
       </Routes>
     </Router>
   );

@@ -1,4 +1,4 @@
-import '../Psycholog.scss'
+import './Trafficking.scss'
 import Header from '../../../components/Header/Header'
 import Footer from '../../../components/Footer/Footer'
 import { useState, useEffect } from 'react'

@@ -44,12 +44,12 @@ export default function Psycholog() {
                     <Link to="/psycholog/bullying" className="psycholog-link">Протидія булінгу</Link>
                     <Link to="/psycholog/war" className="psycholog-link">Допомога в часі війни</Link>
                     <Link to="/psycholog/trafficking" className="psycholog-link">Запобігання торгівлі людьми</Link>
-                    <Link to="/psycholog/trainings" className="psycholog-link">Як навчитися підтримувати людей</Link>
-                    <Link to="/psycholog/contacts" className="psycholog-link">Вправи при стресових ситуаціях</Link>
-                    <Link to="/psycholog/contacts" className="psycholog-link">Попередження алкогольної та наркотичної залежності</Link>
-                    <Link to="/psycholog/contacts" className="psycholog-link">Безкоштовна психологічна підтримка</Link>
-                    <Link to="/psycholog/contacts" className="psycholog-link">Ознаки суїцидальної поведінки</Link>
-                    <Link to="/psycholog/contacts" className="psycholog-link">Поради батькам</Link>
+                    <Link to="/psycholog/people-support" className="psycholog-link">Як навчитися підтримувати людей</Link>
+                    <Link to="/psycholog/stres" className="psycholog-link">Вправи при стресових ситуаціях</Link>
+                    <Link to="/psycholog/alko-narko" className="psycholog-link">Попередження алкогольної та наркотичної залежності</Link>
+                    <Link to="/psycholog/free-support" className="psycholog-link">Безкоштовна психологічна підтримка</Link>
+                    <Link to="/psycholog/suicidal-behavior" className="psycholog-link">Ознаки суїцидальної поведінки</Link>
+                    <Link to="/psycholog/advice-parents" className="psycholog-link">Поради батькам</Link>
                 </div>
             </div>
             <Footer />
