@@ -1,0 +1,101 @@
+.news-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.news-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+.news-title {
+  background: #ffeb3b;
+  padding: 12px 20px;
+}
+
+.news-title h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.news-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px;
+}
+
+.news-images {
+  flex: 1 1 40%;
+}
+
+.news-images img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.news-text {
+  flex: 1 1 55%;
+}
+
+.news-meta {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.delete-btn {
+  margin: 10px 15px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover {
+    background: #d32f2f;
+  }
+}
+
+/* форми */
+.add-news-form,
+.auth-form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.add-news-form input,
+.add-news-form textarea,
+.auth-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.add-news-form button,
+.auth-form button {
+  background: #2196f3;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover {
+    background: #0d47a1;
+  }
+}

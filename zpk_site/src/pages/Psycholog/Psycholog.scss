@@ -190,19 +190,19 @@
     .video{
         text-align: center;
     }
+   
+    h2{
+      text-align: center;
+      color: var(--btn-grey-color);
+      font-size: 38px;
+    }
 
-}
+    p{
+      text-align: center;
+      font-size: 18px;
+      padding-top: 15px;
+    }
 
-h2{
-    text-align: center;
-    color: var(--btn-grey-color);
-    font-size: 38px;
-}
-
-p{
-    text-align: center;
-    font-size: 18px;
-    padding-top: 15px;
 }
 
 .free-support {
