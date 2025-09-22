@@ -154,7 +154,9 @@ export default function Home() {
                                         <li>
                                             <Link className="dropdown-item" to="/symbols">Наша символіка</Link>
                                         </li>
-                                        <li><a className="dropdown-item" href="#">Адіміністрація</a></li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/administration">Адіміністрація</Link>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li className="nav-item">

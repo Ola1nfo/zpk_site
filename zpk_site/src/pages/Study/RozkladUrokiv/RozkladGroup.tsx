@@ -2,42 +2,13 @@ import './RozkladGroup.scss'
 import { useNavigate, useParams } from 'react-router-dom'
 import Header from "../../../components/Header/Header"
 import Footer from "../../../components/Footer/Footer"
+import schedules from "../../../json/schedules.json"
 
 export default function RozkladGroup() {
     const { groupId } = useParams();
     const navigate = useNavigate();
 
-    const schedules = {
-        1: [
-            {
-                day: "Понеділок",
-                lessons: [
-                    { subject: "Математика", room: "302" },
-                    { subject: "Фізика", room: "304" },
-                    { subject: "Інформатика", room: "216" }
-                ]
-            },
-            {
-                day: "Вівторок",
-                lessons: [
-                    { subject: "Хімія", room: "210" },
-                    { subject: "Біологія", room: "212" }
-                ]
-            }
-        ],
-        2: [
-            {
-                day: "Понеділок",
-                lessons: [
-                    { subject: "Хімія", room: "210" },
-                    { subject: "Біологія", room: "212" },
-                    { subject: "Географія", room: "220" }
-                ]
-            }
-        ]
-    };
-
-    const scheduleForGroup = schedules[groupId] || [];
+    const scheduleForGroup = schedules[groupId as keyof typeof schedules] || [];
 
     return (
         <div>

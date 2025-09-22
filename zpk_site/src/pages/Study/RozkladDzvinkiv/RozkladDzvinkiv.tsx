@@ -20,41 +20,41 @@ const lessons = [
         img: lesson1
     },
     {
-        time: "9.55 - 10.40",
+        time: "9.10 - 10.55",
         name: "2 урок",
         img: lesson2
     },
     {
-        time: "10.50 - 11.35",
+        time: "10.05 - 10.50",
         name: "3 урок",
         img: lesson3
     },
     {
-        time: "11.45 - 12.30",
+        time: "10.55 - 11.40",
         name: "4 урок",
         img: lesson4
     },
     {
-        time: "12.40 - 13.25",
+        time: "11.50 - 12.35",
         name: "5 урок",
         img: lesson5
     },
     {
-        time: "10.50 - 11.35",
+        time: "12.40 - 13.25",
         name: "6о урок",
         img: lesson6o
     },
     {
-        time: "11.45 - 12.30",
+        time: "13.30 - 14.15",
         name: "6 урок",
         img: lesson6
     },
     {
-        time: "12.40 - 13.25",
+        time: "14.20 - 15.05",
         name: "7 урок",
         img: lesson7
     },{
-        time: "12.40 - 13.25",
+        time: "15.10 - 15.55",
         name: "8 урок",
         img: lesson8
     }

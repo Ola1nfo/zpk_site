@@ -3,6 +3,7 @@ import './App.css';
 import Home from "./pages/Home/Home"
 import History from './pages/AboutUs/History/History'
 import Symbols from "./pages/AboutUs/Symbols/Symbols"
+import Administration from './pages/AboutUs/Administration/Administration'
 import AdmissionRules from "./pages/Abituriyentu/AdmissionRules/AdmissionRules"
 import OurProfessions from "./pages/Abituriyentu/OurProfessions/OurProfessions";
 import News from "./pages/News/News";
@@ -38,6 +39,7 @@ function App() {
         <Route path='/' element={<Home />}/>
         <Route path='/history' element={<History />}/>
         <Route path='/symbols' element={<Symbols />}/>
+        <Route path='/administration' element={<Administration />}/>
         <Route path='/admission-rules' element={<AdmissionRules />}/>
         <Route path='/our-professions' element={<OurProfessions />}/>
         <Route path='/news' element={<News />}/>
