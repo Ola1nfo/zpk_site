@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import Home from "./pages/Home/Home"
 import History from './pages/AboutUs/History/History'
@@ -31,6 +31,7 @@ import FreeSupport from "./pages/Psycholog/pages/FreeSupport"
 import SuicidalBehavior from './pages/Psycholog/pages/SuicidalBehavior'
 import AdviceParents from './pages/Psycholog/pages/AdviceParents'
 import CareerCenter from './pages/CareerCenter/CareerCenter'
+import Video from './pages/Video/Video'
 
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
         <Route path="/psycholog/suicidal-behavior" element={<SuicidalBehavior />} />
         <Route path="/psycholog/advice-parents" element={<AdviceParents />} />
         <Route path="/career-center" element={<CareerCenter />} />
+        <Route path='/video' element={<Video />}/>
       </Routes>
     </Router>
   );

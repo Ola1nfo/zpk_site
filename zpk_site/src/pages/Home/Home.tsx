@@ -8,10 +8,11 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardActions from '@mui/material/CardActions';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
-import L from 'leaflet';
+import L from 'leaflet'
+import type { News } from '../../types/newsType'
 
 //img
 import Logo from '../../components/img/logo.png'
@@ -56,41 +57,49 @@ const advantages = [
 
 const professions = [
   {
+    id: 'providnyk',
     title: 'Провідник пасажирського вагона',
     description: 'Це спеціаліст, який супроводжує пасажирів у поїздах, забезпечує їх комфорт та безпеку під час подорожі. Провідник контролює квитки, стежить за порядком у вагоні, допомагає пасажирам та відповідає за технічний стан вагона.',
     image: imgProvidnuk,
   },
   {
+    id: 'train',
     title: 'Машиніст тепловоза. Слюсар з ремонту рухомого складу',
     description: 'Фахівець, який керує тепловозом, відповідає за безпечне перевезення вантажів і пасажирів залізницею. Проводить технічне обслуговування та ремонт вагонів і локомотивів, забезпечуючи їх справність та безпечну експлуатацію.',
     image: imgMashunist11,
   },
   {
+    id: 'train',
     title: 'Машиніст тепловоза. Машиніст електровоза. Слюсар з ремонту рухомого складу',
     description: 'Фахівець, який керує тепловозом та електровозом, відповідає за безпечне перевезення вантажів і пасажирів залізницею. Проводить технічне обслуговування та ремонт вагонів і локомотивів, забезпечуючи їх справність та безпечну експлуатацію.',
     image: imgMashunist9,
   },
   {
+    id: 'repair',
     title: 'Слюсар-ремонтник. Слюсар з ремонту рухомого складу. Оглядач вагонів',
     description: 'Фахівець, який займається оглядом, технічним обслуговуванням і ремонтом залізничних вагонів. Виявляє та усуває несправності, контролює технічний стан колісних пар, гальмівної системи та кузова, забезпечуючи безпечну експлуатацію рухомого складу.',
     image: imgSlusar,
   },
   {
+    id: 'hair',
     title: 'Перукар (перукар-модельєр). Манікюрник',
     description: 'Фахівець з краси, який створює сучасні зачіски, виконує стрижки, фарбування волосся, а також доглядає за нігтями. Володіє навичками манікюру, стилізації образу та знається на модних трендах, допомагаючи клієнтам виглядати стильно та доглянуто.',
     image: imgPerukar,
   },
   {
+    id: 'construction',
     title: 'Монтажник систем утеплення будівель. Опоряджувальник будівельний. Монтажник санітарно-технічних систем та устаткування',
     description: 'Фахівець, що виконує утеплення будівель, оздоблювальні роботи та встановлює системи водопостачання, опалення і каналізації для комфортного та енергоефективного приміщення.',
     image: imgMontashnuk,
   },
   {
+    id: 'operator',
     title: 'Оператор з обробки інформації та програмного забезпечення. Оператор дистанційно керованих апаратів',
     description: 'Фахівець, який працює з комп’ютерними програмами для обробки даних та керує дистанційними пристроями й апаратурою для виконання технічних завдань і контролю процесів.',
     image: imgOperatorDron,
   },
   {
+    id: 'derevo',
     title: 'Деревообробник будівельник. Оператор з обробки інформації та програмного забезпечення',
     description: 'Спеціалісти, які виконують роботи з обробки деревини для будівництва та обробляють інформацію за допомогою комп’ютерних програм для підтримки технічних і виробничих процесів.',
     image: imgDerevoobrobnuk,
@@ -130,7 +139,20 @@ export default function Home() {
     const prev = () => {setIndex((prev) => (prev > 0 ? prev - 1 : 0))}
     const next = () => {setIndex((prev) => prev + 3 < professions.length ? prev + 1 : prev)}
     const cardWidth = 345; 
-    const gap = 30;   
+    const gap = 30;  
+    
+    const [latestNews, setLatestNews] = useState<News[]>([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5173/news') 
+        .then(res => res.json())
+        .then((data: News[]) => {
+            // беремо останні 2 новини
+            const lastTwo = data.slice(-2).reverse();
+            setLatestNews(lastTwo);
+        })
+        .catch(err => console.error(err));
+    }, []);
 
     return (
         <div className=''>
@@ -237,7 +259,7 @@ export default function Home() {
                                     <Link className="nav-link" to="/psycholog">Сторінка психолога</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Відеогалерея</a>
+                                    <Link className="nav-link" to="/video">Відеогалерея</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/career-center">Центр кар'єри</Link>
@@ -266,7 +288,14 @@ export default function Home() {
                     </div>
 
                     <div className="hero-secondary-buttons mt-3">
-                        <a href="#" className="btn btn-secondary me-2">Віртуальна екскурсія</a>
+                        <a
+                        href="https://www.youtube.com/watch?v=gYno78tASso&t=4s"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-secondary me-2"
+                        >
+                        Віртуальна екскурсія
+                        </a>
                         <a href="#" className="btn btn-secondary">Запрошуємо на навчання</a>
                     </div>
                 </div>
@@ -343,108 +372,97 @@ export default function Home() {
             </section>
             <section className="chooseProfessionBlock container py-4">
                 <h2 className="text-center mb-4">Обирай свою професію</h2>
+
                 <div className="slider-controls d-flex justify-content-center align-items-center gap-3 flex-nowrap">
                     <button className="btn btn-link nav-btn left p-2" onClick={prev} aria-label="Попередній">
-                        <ArrowBackIos />
+                    <ArrowBackIos />
                     </button>
+
                     <div
                     className="slider-window overflow-hidden"
-                    style={{
-                        width: `${cardWidth * 3 + gap * 2}px`, 
-                        boxSizing: 'border-box'
-                    }}
+                    style={{ width: `${cardWidth * 3 + gap * 2}px`, boxSizing: "border-box" }}
                     >
-                        <div
-                            className="slider-track d-flex"
-                            style={{
-                            gap: `${gap}px`,
-                            transform: `translateX(-${index * (cardWidth + gap)}px)`,
-                            transition: 'transform 0.5s ease-in-out',
-                            width: `${professions.length * (cardWidth + gap) - gap}px`,
-                            boxSizing: 'border-box'
-                            }}
+                    <div
+                        className="slider-track d-flex"
+                        style={{
+                        gap: `${gap}px`,
+                        transform: `translateX(-${index * (cardWidth + gap)}px)`,
+                        transition: "transform 0.5s ease-in-out",
+                        width: `${professions.length * (cardWidth + gap) - gap}px`,
+                        boxSizing: "border-box",
+                        }}
+                    >
+                        {professions.map((prof) => (
+                        <Card
+                            key={prof.id}
+                            sx={{ flexShrink: 0, width: `${cardWidth}px` }}
                         >
-                            {professions.map((prof, i) => (
-                                <Card
-                                    key={i}
-                                    sx={{
-                                    flexShrink: 0,
-                                    width: `${cardWidth}px`,
-                                    }}
-                                >
-                                    <CardActionArea>
-                                        <CardMedia
-                                            component="img"
-                                            image={prof.image}
-                                            alt={prof.title}
-                                            sx={{ width: '100%', height: 200, objectFit: 'cover' }}
-                                        />
-                                        <CardContent>
-                                            <Typography gutterBottom variant="h5" component="div">
-                                            {prof.title}
-                                            </Typography>
-                                            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                                            {prof.description}
-                                            </Typography>
-                                        </CardContent>
-                                    </CardActionArea>
-                                    <CardActions>
-                                        <Button size="small" color="primary">
-                                            Детальніше
-                                        </Button>
-                                    </CardActions>
-                                </Card>
-                            ))}
-                        </div>
+                            <CardActionArea>
+                            <CardMedia
+                                component="img"
+                                image={prof.image}
+                                alt={prof.title}
+                                sx={{ width: "100%", height: 200, objectFit: "cover" }}
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="div">
+                                {prof.title}
+                                </Typography>
+                                <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                                {prof.description}
+                                </Typography>
+                            </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                            <Button
+                                size="small"
+                                color="primary"
+                                component={Link}
+                                to={`/our-professions#${prof.id}`}
+                            >
+                                Детальніше
+                            </Button>
+                            </CardActions>
+                        </Card>
+                        ))}
                     </div>
+                    </div>
+
                     <button className="btn btn-link nav-btn right p-2" onClick={next} aria-label="Наступний">
-                        <ArrowForwardIos />
+                    <ArrowForwardIos />
                     </button>
                 </div>
             </section>
-            <section className="newsEventsBlock container py-5">
-                <h2 className="text-center text-white py-3 bg-blue rounded">Останні новини та анонси подій</h2>
+            {/* <section className="newsEventsBlock container py-5">
+                <h2 className="text-center text-white py-3 bg-blue rounded">
+                    Останні новини та анонси подій
+                </h2>
                 <div className="row mt-4 gy-4">
                     <div className="col-lg-8">
                         <div className="row g-4">
-                            <div className="col-md-6">
+                            {latestNews.map((news) => (
+                            <div className="col-md-6" key={news.id}>
                                 <div className="news-card">
-                                    <img src="image1.jpg" alt="Вручення документів" className="img-fluid rounded" />
-                                    <h5 className="mt-3 fw-bold">Запрошуємо на навчання</h5>
-                                    <p className="text-muted small">
-                                    
-                                    </p>
-                                    <a href="#" className="text-decoration-underline small">Читати більше</a>
+                                <img
+                                    src={news.image[0]}
+                                    alt={news.title}
+                                    className="img-fluid rounded"
+                                />
+                                <h5 className="mt-3 fw-bold">{news.title}</h5>
+                                <p className="text-muted small">{news.content.slice(0, 100)}...</p>
+                                <Link
+                                    to={`/news/${news.id}`}
+                                    className="text-decoration-underline small"
+                                >
+                                    Читати більше
+                                </Link>
                                 </div>
                             </div>
-                            <div className="col-md-6">
-                                <div className="news-card">
-                                    <img src="image2.jpg" alt="Атестація" className="img-fluid rounded" />
-                                    <h5 className="mt-3 fw-bold">В добру путь, наші вступники!</h5>
-                                    <p className="text-muted small">
-                                    У ДНЗ «Здолбунівське вище професійне училище залізничного транспорту» відбувся випуск п’ятьох груп: №5, №6, №10, №11 та №13.
-                                    </p>
-                                    <a href="#" className="text-decoration-underline small">Читати більше</a>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
-                    <div className="col-lg-4">
-                        <h5 className="custom-underline">Анонси подій</h5>
-                        <ul className="list-unstyled event-list">
-                            <li className="d-flex gap-3">
-                                <div className="date-circle small-text">
-                                    <strong>Червень–серпень</strong>
-                                </div>
-                                <div>
-                                    <p className="mb-1 fw-bold">Прийом заяв та документів від вступників</p>
-                                    <p className="mb-0 text-muted small">Червень–серпень 2025 року<br />● Приймальна комісія коледжу</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
-            </section>
+            </section> */}
             <section className="instagramPromo py-4">
                 <div className="container d-flex flex-column flex-md-row align-items-center justify-content-between text-center text-md-start">
                     <div>

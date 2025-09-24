@@ -1,6 +1,9 @@
 import './OurProfessions.scss'
 import Header from '../../../components/Header/Header'
 import Footer from '../../../components/Footer/Footer'
+import { useEffect } from 'react'
+import { useLocation } from 'react-router'
+
 
 //img
 import operator from './img/operator.jpg'
@@ -39,11 +42,22 @@ import icon19 from './img/icon19.png'
 
 
 export default function OurProfessions() {
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.hash) {
+            const element = document.querySelector(location.hash);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, [location]);
+
     return (
         <div>
             <Header />
             <div className='profession-information container'>
-                <div className="info-block">
+                <div className="info-block" id='operator'>
                     <h2>Оператор з обробки інформації та програмного забезпечення. Оператор дистанційно керованих апаратів
                     </h2>
                     <p>
@@ -89,7 +103,7 @@ export default function OurProfessions() {
                         </div>
                     </div>
                 </div>
-                <div className="info-block">
+                <div className="info-block" id='derevo'>
                     <h2>Деревообробник будівельний. Оператор з обробки інформації та програмного забезпечення.</h2>
                     <p>
                         Хочеш працювати з деревиною, створювати елементи конструкцій та меблеві вироби? 
@@ -127,7 +141,7 @@ export default function OurProfessions() {
                         </div>
                     </div>
                 </div>
-                <div className="info-block">
+                <div className="info-block" id='train'>
                     <h2>Машиніст тепловоза та електровоза. Слюсар з ремонту рухомого складу</h2>
                     <p>
                         Хочеш працювати на залізниці, керувати локомотивом або обслуговувати рухомий склад? 
@@ -164,7 +178,7 @@ export default function OurProfessions() {
                         </div>
                     </div>
                 </div>
-                <div className="info-block">
+                <div className="info-block" id='repair'>
                     <h2>Слюсар-ремонтник. Слюсар з ремонту рухомого складу. Оглядач вагонів. Оглядач-ремонтник вагонів</h2>
                     <p>
                         Хочеш працювати з технікою залізничного транспорту, ремонтувати та обслуговувати вагони? 
@@ -200,7 +214,7 @@ export default function OurProfessions() {
                         </div>
                     </div>
                 </div>
-                <div className="info-block">
+                <div className="info-block" id='hair'>
                     <h2>Перукар (перукар-модельєр). Манікюрник</h2>
                     <p>
                         Хочеш працювати у сфері краси, створювати стильні зачіски та доглядати за руками клієнтів? 
@@ -236,7 +250,7 @@ export default function OurProfessions() {
                         </div>
                     </div>
                 </div>
-                <div className="info-block">
+                <div className="info-block" id='construction'>
                     <h2>Монтажник систем утеплення будівель. Опоряджувальник будівельний. Монтажник санітарно-технічних систем та устаткування</h2>
                     <p>
                         Хочеш працювати у будівельній сфері, монтувати сучасні системи утеплення, виконувати оздоблювальні роботи та встановлювати сантехніку? 
@@ -278,6 +292,46 @@ export default function OurProfessions() {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="info-block" id='providnyk'>
+                    <h2>Провідник пасажирського вагона. Стюард</h2>
+                    <p>
+                        Хочеш працювати в залізничному пасажирському транспорті та забезпечувати комфорт і безпеку пасажирів? 
+                        Ця професія поєднує навички обслуговування пасажирів, організації поїздки та контролю за безпекою під час руху поїзда.
+                    </p>
+
+                    <div className="photo-text">
+                        <div className="photo-block">
+                        <img src={train9} alt="пасажирський вагон" />
+                        <img src={train92} alt="обслуговування пасажирів" />
+                    </div>
+
+                    <div className="text-block">
+                        <div className="text-block1">
+                            <img src={icon7} alt="icon" />
+                            <p>
+                            Провідник пасажирського вагона організовує посадку пасажирів, перевіряє квитки та забезпечує комфорт під час поїздки. 
+                            Він відповідає за чистоту вагона та дотримання правил безпеки під час руху поїзда.
+                            </p>
+                        </div>
+
+                        <div className="text-block2">
+                            <img src={icon8} alt="icon" />
+                            <p>
+                            Стюард обслуговує пасажирів під час поїздки: надає інформацію, допомагає з багажем, пропонує харчування та напої. 
+                            Його робота сприяє приємному та безпечному перебуванню пасажирів у поїзді.
+                            </p>
+                        </div>
+                        <div className="text-block3">
+                            <img src={icon9} alt="icon" />
+                            <p>
+                            Випускники цієї професії користуються попитом у залізничних компаніях та міжнародних поїздках. 
+                            Вони можуть працювати у пасажирських вагонах, на обслуговуванні преміум-класу або стати старшими провідниками. 
+                            Професія поєднує комунікаційні навички, відповідальність та стабільний заробіток.
+                            </p>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
             <Footer />

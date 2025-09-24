@@ -41,7 +41,7 @@ export default function Footer() {
                         <li><Link to="/news">Новини</Link></li>
                         <li><Link to="/our-professions">Наші професії</Link></li>
                         <li><Link to="/priymalna-komisiya">Приймальна комісія</Link></li>
-                        <li><button onClick={handleContactClick}>Зв'язатись з нами</button></li>
+                        {/* <li><button onClick={handleContactClick}>Зв'язатись з нами</button></li> */}
                     </ul>
                 </div>
             </div>

@@ -112,7 +112,7 @@ export default function Header() {
                                 <Link className="nav-link" to="/psycholog">Сторінка психолога</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Відеогалерея</a>
+                                <Link className="nav-link" to="/video">Відеогалерея</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/career-center">Центр кар'єри</Link>
