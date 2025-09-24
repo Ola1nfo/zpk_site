@@ -117,3 +117,94 @@
     }
   }
 }
+
+@media (max-width: 992px) { // планшети
+  .news-container {
+    .news-content {
+      flex-direction: column;
+
+      .news-images {
+        flex: 1 1 100%;
+        margin-bottom: 15px;
+
+        img {
+          max-height: 400px;
+        }
+
+        button {
+          min-width: 35px;
+          min-height: 35px;
+        }
+      }
+
+      .news-text {
+        flex: 1 1 100%;
+        text-align: left;
+
+        .news-meta {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) { // мобільні
+  .news-container {
+    padding: 10px;
+
+    .page-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .news-card {
+      .news-title h2 {
+        font-size: 20px;
+      }
+
+      .news-content {
+        gap: 10px;
+
+        .news-images {
+          img {
+            max-height: 250px;
+          }
+
+          button {
+            top: 45%;
+            min-width: 30px;
+            min-height: 30px;
+          }
+        }
+
+        .news-text {
+          font-size: 14px;
+
+          .news-meta {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .delete-btn {
+        padding: 4px 8px;
+        font-size: 12px;
+      }
+    }
+
+    .add-news-form,
+    .auth-form {
+      input,
+      textarea {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      button, .logout-btn {
+        font-size: 14px;
+        padding: 8px;
+      }
+    }
+  }
+}

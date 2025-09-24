@@ -1,0 +1,81 @@
+.career-center {
+  padding: 2rem 0;
+
+  .career-hero {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    .career-logo {
+      width: 220px;
+      margin: -20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--btn-grey-color);
+    }
+  }
+
+  .career-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+
+    button {
+      background: var(--blue-color);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background: var(--hover-blue-color);
+      }
+    }
+  }
+
+  .career-news {
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #1f3c88;
+    }
+
+    .news-card {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: center;
+        background: #f9f9f9;
+        padding: 1.5rem;
+        border-radius: 12px;
+
+        .news-slider {
+            flex: 1 1 400px;
+            max-width: 500px;
+
+            img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            }
+        }
+
+      .news-content {
+        flex: 1 1 400px;
+
+        h3 {
+          margin-bottom: 1rem;
+          color: #1f3c88;
+        }
+
+        p {
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+}

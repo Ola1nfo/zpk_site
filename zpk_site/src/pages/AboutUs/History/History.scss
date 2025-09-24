@@ -36,7 +36,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
     margin-right: 20px;
     border: 2px solid white;
     position: relative;
@@ -76,7 +75,55 @@
     font-size: 20px;
     line-height: 1.5;
   }
+
+  // 📱 адаптивність
+  @media (max-width: 992px) {
+    .timeline-item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 15px;
+
+      .timeline-year {
+        margin-right: 0;
+        margin-bottom: 15px;
+
+        &::after,
+        &::before {
+          height: 20px; // коротше лінії
+        }
+      }
+
+      .timeline-content {
+        font-size: 18px;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .timeline-title {
+      font-size: 28px;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+
+    .timeline-year {
+      width: 100px;
+      height: 100px;
+      font-size: 16px;
+
+      &::after,
+      &::before {
+        height: 15px;
+      }
+    }
+
+    .timeline-content {
+      font-size: 16px;
+    }
+  }
 }
+
 
 .photo-gallery {
   background: var(--light-violet-color);

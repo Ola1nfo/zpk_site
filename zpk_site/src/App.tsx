@@ -30,6 +30,7 @@ import AlkoNarko from "./pages/Psycholog/pages/AlkoNarko"
 import FreeSupport from "./pages/Psycholog/pages/FreeSupport"
 import SuicidalBehavior from './pages/Psycholog/pages/SuicidalBehavior'
 import AdviceParents from './pages/Psycholog/pages/AdviceParents'
+import CareerCenter from './pages/CareerCenter/CareerCenter'
 
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
         <Route path="/psycholog/free-support" element={<FreeSupport />} />
         <Route path="/psycholog/suicidal-behavior" element={<SuicidalBehavior />} />
         <Route path="/psycholog/advice-parents" element={<AdviceParents />} />
+        <Route path="/career-center" element={<CareerCenter />} />
       </Routes>
     </Router>
   );

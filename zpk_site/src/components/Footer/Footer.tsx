@@ -24,7 +24,7 @@ export default function Footer() {
         <footer className="footer">
             <div className="footer-content">
                 <div className="footer-column">
-                    <h2 className="footer-logo">Здолбунівський професійний коледж</h2>
+                    <h2>Здолбунівський професійний коледж</h2>
                     <p className="footer__slogan">Долучайся до нашої онлайн-сім'ї в соцмережах</p>
                     <div className="footer-social">
                         <div className='linkBtn'>

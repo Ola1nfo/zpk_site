@@ -136,8 +136,8 @@ export default function Home() {
         <div className=''>
             <header className="headerHome">
                 <nav className="navbar navbar-expand-lg navbar-light">
-                    <a href="#"><img className='logo' src={Logo} alt="logo" /></a>
                     <div className="container">
+                        <a href="#"><img className='logo' src={Logo} alt="logo" /></a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
@@ -240,7 +240,7 @@ export default function Home() {
                                     <a className="nav-link" href="#">Відеогалерея</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Центр кар'єри</a>
+                                    <Link className="nav-link" to="/career-center">Центр кар'єри</Link>
                                 </li>
                                 
                             </ul>

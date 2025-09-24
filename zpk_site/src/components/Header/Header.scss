@@ -3,9 +3,12 @@
   margin: 0 auto;
 
   .navbar {
-    padding: 0;
-    flex-wrap: wrap;
     background-color: var(--blue-color);
+    display: flex;          // робимо flex-контейнером
+    align-items: center;    // вирівнюємо логотип і меню по вертикалі
+    justify-content: space-between; // логотип зліва, меню справа
+    flex-wrap: nowrap;      // не переносити на новий ряд
+    padding: 0 20px;  
 
     .logo {
       width: 80px;
@@ -115,6 +118,68 @@
       visibility: visible;
       transform: translateY(0);
       margin-top: 0;
+    }
+  }
+}
+
+@media (max-width: 992px) { // планшети
+  .header {
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+
+      .navbar-nav {
+        flex-direction: column;
+        gap: 10px 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .dropdown-menu {
+        position: static; // меню йде під елементом
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        display: none; // показуємо при кліку через JS/Bootstrap
+        width: 100%;
+        border: none;
+        box-shadow: none;
+
+        .dropdown-item {
+          padding: 12px 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) { // мобільні телефони
+  .header {
+    .navbar {
+      .logo {
+        width: 60px;
+      }
+
+      .nav-link {
+        font-size: 16px;
+        padding: 8px 12px;
+
+        &::after {
+          bottom: 3px;
+          height: 2px;
+        }
+      }
+
+      .dropdown-toggle-arrow {
+        padding-right: 20px;
+
+        &::before {
+          border-left: 4px solid transparent;
+          border-right: 4px solid transparent;
+          border-top: 4px solid #fff;
+        }
+      }
     }
   }
 }
