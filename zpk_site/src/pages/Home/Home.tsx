@@ -140,19 +140,6 @@ export default function Home() {
     const next = () => {setIndex((prev) => prev + 3 < professions.length ? prev + 1 : prev)}
     const cardWidth = 345; 
     const gap = 30;  
-    
-    const [latestNews, setLatestNews] = useState<News[]>([]);
-
-    useEffect(() => {
-        fetch('http://localhost:5173/news') 
-        .then(res => res.json())
-        .then((data: News[]) => {
-            // беремо останні 2 новини
-            const lastTwo = data.slice(-2).reverse();
-            setLatestNews(lastTwo);
-        })
-        .catch(err => console.error(err));
-    }, []);
 
     return (
         <div className=''>

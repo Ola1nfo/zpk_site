@@ -2,6 +2,7 @@ import '../Psycholog.scss'
 import Header from '../../../components/Header/Header'
 import Footer from '../../../components/Footer/Footer'
 import { useState, useEffect } from 'react'
+import type { MouseEvent } from 'react'
 
 // імпорт зображень
 import peoplesuportImg1 from '../img/peoplesuportImg1.jpg'
@@ -11,9 +12,8 @@ import peoplesuportImg4 from '../img/peoplesuportImg4.jpg'
 import peoplesuportImg5 from '../img/peoplesuportImg5.jpg'
 import peoplesuportImg6 from '../img/peoplesuportImg6.jpg'
 
-
 export default function Trafficking() {
-    const [currentIndex, setCurrentIndex] = useState(null)
+    const [currentIndex, setCurrentIndex] = useState<number | null>(null)
 
     const images = [
         peoplesuportImg1, peoplesuportImg2, peoplesuportImg3,
@@ -24,21 +24,27 @@ export default function Trafficking() {
         window.history.back()
     }
 
-    const handlePrev = (e) => {
+    const handlePrev = (e?: MouseEvent<HTMLButtonElement>) => {
         e?.stopPropagation()
-        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
+        setCurrentIndex((prev) => {
+            if (prev === null) return 0
+            return prev === 0 ? images.length - 1 : prev - 1
+        })
     }
 
-    const handleNext = (e) => {
+    const handleNext = (e?: MouseEvent<HTMLButtonElement>) => {
         e?.stopPropagation()
-        setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
+        setCurrentIndex((prev) => {
+            if (prev === null) return 0
+            return prev === images.length - 1 ? 0 : prev + 1
+        })
     }
 
     const handleClose = () => setCurrentIndex(null)
 
     // 🔥 Обробка клавіатури
     useEffect(() => {
-        const handleKeyDown = (e) => {
+        const handleKeyDown = (e: KeyboardEvent) => {
             if (currentIndex === null) return
 
             if (e.key === 'Escape') handleClose()
