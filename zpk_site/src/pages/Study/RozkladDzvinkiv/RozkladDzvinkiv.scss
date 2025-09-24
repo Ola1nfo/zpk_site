@@ -16,14 +16,18 @@
     .lessons {
         display: flex;
         flex-direction: column;
+        gap: 15px;
     }
 
     .lesson {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 5px 20px;
+        padding: 10px 20px;
         border: 1px solid #ddd;
+        border-radius: 10px;
+        background: #fff;
+        transition: 0.3s;
 
         img {
             width: 120px;
@@ -45,9 +49,56 @@
             flex: 1;
             text-align: center;
         }
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
     }
 
     .lesson.violet {
         background: var(--light-violet-color);
+    }
+
+    /* планшети */
+    @media (max-width: 768px) {
+        .title {
+            font-size: 28px;
+            padding: 15px;
+        }
+
+        .lesson {
+            padding: 10px;
+            img {
+                width: 90px;
+                height: 90px;
+            }
+            .time, .name {
+                font-size: 20px;
+            }
+        }
+    }
+
+    /* телефони */
+    @media (max-width: 480px) {
+        .lesson {
+            flex-direction: column;
+            text-align: center;
+            gap: 10px;
+
+            img {
+                width: 70px;
+                height: 70px;
+            }
+            .time, .name {
+                font-size: 18px;
+                flex: unset;
+                text-align: center;
+            }
+        }
+
+        .title {
+            font-size: 22px;
+        }
     }
 }
