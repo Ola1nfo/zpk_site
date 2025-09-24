@@ -67,7 +67,6 @@ export default function Header() {
                                     <li>
                                         <Link className="dropdown-item" to="/rozklad-urokiv">Розклад уроків</Link>
                                     </li>
-                                    <li><a className="dropdown-item" href="#">НМТ</a></li>
                                     <li>
                                         <Link className="dropdown-item" to="/PISA">PISA</Link>
                                     </li>
