@@ -1,27 +1,27 @@
-import './Trafficking.scss'
-import Header from '../../../components/Header/Header'
-import Footer from '../../../components/Footer/Footer'
-import { useState, useEffect } from 'react'
+import './Trafficking.scss';
+import Header from '../../../components/Header/Header';
+import Footer from '../../../components/Footer/Footer';
+import { useState, useEffect } from 'react';
 
 // імпорт зображень
-import traffickingImg1 from '../img/traffickingImg1.jpg'
-import traffickingImg2 from '../img/traffickingImg2.jpg'
-import traffickingImg3 from '../img/traffickingImg3.jpg'
-import traffickingImg4 from '../img/traffickingImg4.jpg'
-import traffickingImg5 from '../img/traffickingImg5.jpg'
-import traffickingImg6 from '../img/traffickingImg6.jpg'
-import traffickingImg7 from '../img/traffickingImg7.jpg'
-import traffickingImg8 from '../img/traffickingImg8.jpg'
-import traffickingImg9 from '../img/traffickingImg9.jpg'
-import traffickingImg10 from '../img/traffickingImg10.jpg'
-import traffickingImg11 from '../img/traffickingImg11.jpg'
-import traffickingImg12 from '../img/traffickingImg12.jpg'
-import traffickingImg13 from '../img/traffickingImg13.jpg'
-import traffickingImg14 from '../img/traffickingImg14.jpg'
-import traffickingImg15 from '../img/traffickingImg15.jpg'
+import traffickingImg1 from '../img/traffickingImg1.jpg';
+import traffickingImg2 from '../img/traffickingImg2.jpg';
+import traffickingImg3 from '../img/traffickingImg3.jpg';
+import traffickingImg4 from '../img/traffickingImg4.jpg';
+import traffickingImg5 from '../img/traffickingImg5.jpg';
+import traffickingImg6 from '../img/traffickingImg6.jpg';
+import traffickingImg7 from '../img/traffickingImg7.jpg';
+import traffickingImg8 from '../img/traffickingImg8.jpg';
+import traffickingImg9 from '../img/traffickingImg9.jpg';
+import traffickingImg10 from '../img/traffickingImg10.jpg';
+import traffickingImg11 from '../img/traffickingImg11.jpg';
+import traffickingImg12 from '../img/traffickingImg12.jpg';
+import traffickingImg13 from '../img/traffickingImg13.jpg';
+import traffickingImg14 from '../img/traffickingImg14.jpg';
+import traffickingImg15 from '../img/traffickingImg15.jpg';
 
 export default function Trafficking() {
-    const [currentIndex, setCurrentIndex] = useState(null)
+    const [currentIndex, setCurrentIndex] = useState<number | null>(null);
 
     const images = [
         traffickingImg1, traffickingImg2, traffickingImg3,
@@ -29,37 +29,39 @@ export default function Trafficking() {
         traffickingImg7, traffickingImg8, traffickingImg9,
         traffickingImg10, traffickingImg11, traffickingImg12,
         traffickingImg13, traffickingImg14, traffickingImg15
-    ]
+    ];
 
     const handleBack = () => {
-        window.history.back()
-    }
+        window.history.back();
+    };
 
-    const handlePrev = (e) => {
-        e?.stopPropagation()
-        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
-    }
+    const handlePrev = (e?: React.MouseEvent) => {
+        e?.stopPropagation();
+        if (currentIndex === null) return;
+        setCurrentIndex(prev => prev! === 0 ? images.length - 1 : prev! - 1);
+    };
 
-    const handleNext = (e) => {
-        e?.stopPropagation()
-        setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
-    }
+    const handleNext = (e?: React.MouseEvent) => {
+        e?.stopPropagation();
+        if (currentIndex === null) return;
+        setCurrentIndex(prev => prev! === images.length - 1 ? 0 : prev! + 1);
+    };
 
-    const handleClose = () => setCurrentIndex(null)
+    const handleClose = () => setCurrentIndex(null);
 
-    // 🔥 Обробка клавіатури
+    // Обробка клавіатури
     useEffect(() => {
-        const handleKeyDown = (e) => {
-            if (currentIndex === null) return
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (currentIndex === null) return;
 
-            if (e.key === 'Escape') handleClose()
-            if (e.key === 'ArrowLeft') handlePrev()
-            if (e.key === 'ArrowRight') handleNext()
-        }
+            if (e.key === 'Escape') handleClose();
+            if (e.key === 'ArrowLeft') handlePrev();
+            if (e.key === 'ArrowRight') handleNext();
+        };
 
-        window.addEventListener('keydown', handleKeyDown)
-        return () => window.removeEventListener('keydown', handleKeyDown)
-    }, [currentIndex])
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [currentIndex]);
 
     return (
         <div>
@@ -83,7 +85,6 @@ export default function Trafficking() {
                     </button>
                 </div>
 
-                {/* Модальне вікно */}
                 {currentIndex !== null && (
                     <div className="modal" onClick={handleClose}>
                         <span className="close" onClick={handleClose}>&times;</span>
@@ -99,5 +100,5 @@ export default function Trafficking() {
             </div>
             <Footer />
         </div>
-    )
+    );
 }

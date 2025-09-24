@@ -6,7 +6,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 
-// Іконка для маркера (бо за замовчуванням може не підвантажитись)
+// Іконка для маркера
 const customIcon = new L.Icon({
     iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
@@ -16,8 +16,13 @@ const customIcon = new L.Icon({
     shadowSize: [41, 41]
 })
 
+// Тип для FlyToMarker
+interface FlyToMarkerProps {
+    position: [number, number]
+}
+
 // Компонент для плавного польоту до маркера
-function FlyToMarker({ position }) {
+function FlyToMarker({ position }: FlyToMarkerProps) {
     const map = useMap()
     useEffect(() => {
         map.flyTo(position, 17, { duration: 2 })
@@ -33,7 +38,7 @@ export default function PriymalnaKomisiya() {
 
         const interval = setInterval(() => {
             const now = new Date()
-            const difference = targetDate - now
+            const difference = targetDate.getTime() - now.getTime()
 
             if (difference > 0) {
                 const days = Math.floor(difference / (1000 * 60 * 60 * 24))
@@ -50,7 +55,7 @@ export default function PriymalnaKomisiya() {
         return () => clearInterval(interval)
     }, [])
 
-    const position = [50.5203, 26.2389] // координати Здолбунова
+    const position: [number, number] = [50.5203, 26.2389] // координати Здолбунова
 
     return (
         <div>

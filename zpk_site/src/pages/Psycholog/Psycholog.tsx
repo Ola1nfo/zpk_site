@@ -49,7 +49,6 @@ export default function Psycholog() {
                     <Link to="/psycholog/alko-narko" className="psycholog-link">Попередження алкогольної та наркотичної залежності</Link>
                     <Link to="/psycholog/free-support" className="psycholog-link">Безкоштовна психологічна підтримка</Link>
                     <Link to="/psycholog/suicidal-behavior" className="psycholog-link">Ознаки суїцидальної поведінки</Link>
-                    <Link to="/psycholog/advice-parents" className="psycholog-link">Поради батькам</Link>
                 </div>
             </div>
             <Footer />

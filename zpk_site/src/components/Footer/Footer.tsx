@@ -1,6 +1,5 @@
 import './Footer.scss'
 import { Link } from 'react-router'
-import { useNavigate } from 'react-router-dom';
 
 
 //img
@@ -10,15 +9,7 @@ import facebookLogo from '../../components/img/facebookLogo.png'
 import mailLogo from '../../components/img/mailLogo.png'
 
 export default function Footer() {
-    const navigate = useNavigate();
 
-    const handleContactClick = () => {
-    navigate('/contact');
-    setTimeout(() => {
-      const element = document.getElementById('contact');
-      if (element) element.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
-  }
 
     return (
         <footer className="footer">
