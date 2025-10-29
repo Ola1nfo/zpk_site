@@ -113,7 +113,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
 });
 
-const position = [50.5241152, 26.2533035];
+const position: [number, number] = [50.5241152, 26.2533035];
 
 function FlyToMarker() {
   const map = useMap();
