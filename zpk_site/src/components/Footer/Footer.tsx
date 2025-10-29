@@ -3,10 +3,9 @@ import { Link } from 'react-router'
 
 
 //img
-import QRInstagram from '../../components/Header/img/QRInstagram.png'
 import instagramLogo from '../../components/img/instagramLogo.png'
 import facebookLogo from '../../components/img/facebookLogo.png'
-import mailLogo from '../../components/img/mailLogo.png'
+import tiktokLogo from '../../components/img/tiktokLogo.png'
 
 export default function Footer() {
 
@@ -21,10 +20,9 @@ export default function Footer() {
                         <div className='linkBtn'>
                             <a className="nav-link" href="https://www.instagram.com/zpkpto/"><img className='instagramLogo' src={ instagramLogo } alt="instagramLogo" /></a>
                             <a className="nav-link" href="https://www.facebook.com/zvpuzt/"><img className='instagramLogo' src={ facebookLogo } alt="facebookLogo" /></a>
-                            <a className="nav-link" href="#"><img className='mailLogo' src={ mailLogo } alt="mailLogo" /></a>
+                            <a className="nav-link" href="https://www.tiktok.com/@zpkpto_zd"><img className='tiktokLogo' src={ tiktokLogo } alt="tiktokLogo" /></a>
                         </div>
                     </div>
-                    <img src={QRInstagram} alt="QR-код" className="footer-qr" />
                 </div>
                 <div className="footer-column">
                     <h3>Навігація</h3>

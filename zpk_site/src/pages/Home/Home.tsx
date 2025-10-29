@@ -17,7 +17,7 @@ import L from 'leaflet'
 import Logo from '../../components/img/logo.png'
 import instagramLogo from '../../components/img/instagramLogo.png'
 import facebookLogo from '../../components/img/facebookLogo.png'
-import mailLogo from '../../components/img/mailLogo.png'
+import tiktokLogo from '../../components/img/tiktokLogo.png'
 import icon1 from '../../components/Header/img/icon1.png'
 import icon2 from '../../components/Header/img/icon2.png'
 import icon3 from '../../components/Header/img/icon3.png'
@@ -113,21 +113,18 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
 });
 
-const position: [number, number] = [50.52158, 26.25582]; 
+const position = [50.5241152, 26.2533035];
 
 function FlyToMarker() {
   const map = useMap();
 
   const handleClick = () => {
-    map.flyTo(position, 17, {
-      animate: true,
-      duration: 1.5,
-    });
+    map.flyTo(position, 17, { animate: true, duration: 1.5 });
   };
 
   return (
     <div className="map-address-label" onClick={handleClick}>
-      Рівненська обл., м. Здолбунів, вул. Ясна, 6
+      📍 Рівненська обл., м. Здолбунів, вул. Ясна, 6
     </div>
   );
 }
@@ -200,7 +197,9 @@ export default function Home() {
                                         <li>
                                             <Link className="dropdown-item" to="/rozklad-urokiv">Розклад уроків</Link>
                                         </li>
-
+                                        <li>
+                                            <Link className="dropdown-item" to="/electro-tabel">Електронний табель</Link>
+                                        </li>
                                         <li>
                                             <Link className="dropdown-item" to="/PISA">PISA</Link>
                                         </li>
@@ -212,9 +211,6 @@ export default function Home() {
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                         <li>
-                                            <Link className="dropdown-item" to="/museum">Музей</Link>
-                                        </li>
-                                        <li>
                                             <Link className="dropdown-item" to="/klasnyy-kerivnyk">Класному керівнику</Link>
                                         </li>
                                         <li>
@@ -222,6 +218,12 @@ export default function Home() {
                                         </li>
                                         <li>
                                             <Link className="dropdown-item" to="/samovryaduvannya">Самоврядування</Link>
+                                        </li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/gyrtky">Гуртки</Link>
+                                        </li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/museum">Музей</Link>
                                         </li>
                                     </ul>
                                 </li>
@@ -235,6 +237,9 @@ export default function Home() {
                                         </li>
                                         <li>
                                             <Link className="dropdown-item" to="/normatyvna-baza">Нормативно-правова база</Link>
+                                        </li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/atestasia">Атестація</Link>
                                         </li>
                                     </ul>
                                 </li>
@@ -264,7 +269,7 @@ export default function Home() {
                     <div className='linkBtn'>
                         <a className="nav-link" href="https://www.instagram.com/zpkpto/"><img className='instagramLogo' src={ instagramLogo } alt="instagramLogo" /></a>
                         <a className="nav-link" href="https://www.facebook.com/zvpuzt/"><img className='instagramLogo' src={ facebookLogo } alt="facebookLogo" /></a>
-                        <a className="nav-link" href="#"><img className='mailLogo' src={ mailLogo } alt="mailLogo" /></a>
+                        <a className="nav-link" href="https://www.tiktok.com/@zpkpto_zd"><img className='tiktokLogo' src={ tiktokLogo } alt="tiktokLogo" /></a>
                     </div>
                     <div className="hero-buttons">
                         <a href="#" className="btn btn-zaiva me-2">Подати заяву онлайн</a>
@@ -282,7 +287,7 @@ export default function Home() {
                         >
                         Віртуальна екскурсія
                         </a>
-                        <a href="#" className="btn btn-secondary">Запрошуємо на навчання</a>
+                        <a href="/priymalna-komisiya" className="btn btn-secondary">Запрошуємо на навчання</a>
                     </div>
                 </div>
             </div>
@@ -511,14 +516,28 @@ export default function Home() {
                 </div>
             </section>
             <div className="custom-map-container">
-                <MapContainer center={position} zoom={17} scrollWheelZoom={false} className="map">
+                <MapContainer
+                    center={position}
+                    zoom={16}
+                    scrollWheelZoom={false}
+                    style={{
+                    height: "450px",
+                    width: "100%",
+                    borderRadius: "15px",
+                    position: "relative",
+                    }}
+                >
                     <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    url="https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}" 
+                    attribution='&copy; <a href="https://www.google.com/maps">Google</a>'
                     />
+
                     <Marker position={position}>
                     <Popup>
-                        Рівненська обл., м. Здолбунів<br />вул. Ясна, 6
+                        <strong>Здолбунівський професійний коледж</strong>
+                        <br />
+                        Рівненська обл., м. Здолбунів<br />
+                        вул. Ясна, 6
                     </Popup>
                     </Marker>
                     <FlyToMarker />

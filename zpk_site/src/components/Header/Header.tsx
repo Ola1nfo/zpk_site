@@ -68,6 +68,9 @@ export default function Header() {
                                         <Link className="dropdown-item" to="/rozklad-urokiv">Розклад уроків</Link>
                                     </li>
                                     <li>
+                                        <Link className="dropdown-item" to="/electro-tabel">Електронний табель</Link>
+                                    </li>
+                                    <li>
                                         <Link className="dropdown-item" to="/PISA">PISA</Link>
                                     </li>
                                 </ul>
@@ -78,9 +81,6 @@ export default function Header() {
                                 </a>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
-                                        <Link className="dropdown-item" to="/museum">Музей</Link>
-                                    </li>
-                                    <li>
                                         <Link className="dropdown-item" to="/klasnyy-kerivnyk">Класному керівнику</Link>
                                     </li>
                                     <li>
@@ -88,6 +88,12 @@ export default function Header() {
                                     </li>
                                     <li>
                                         <Link className="dropdown-item" to="/samovryaduvannya">Самоврядування</Link>
+                                    </li>
+                                    <li>
+                                        <Link className="dropdown-item" to="/gyrtky">Гуртки</Link>
+                                    </li>
+                                    <li>
+                                        <Link className="dropdown-item" to="/museum">Музей</Link>
                                     </li>
                                 </ul>
                             </li>
@@ -101,6 +107,9 @@ export default function Header() {
                                     </li>
                                     <li>
                                         <Link className="dropdown-item" to="/normatyvna-baza">Нормативно-правова база</Link>
+                                    </li>
+                                    <li>
+                                        <Link className="dropdown-item" to="/atestasia">Атестація</Link>
                                     </li>
                                 </ul>
                             </li>

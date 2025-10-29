@@ -20,7 +20,7 @@ const lessons = [
         img: lesson1
     },
     {
-        time: "9.10 - 10.55",
+        time: "9.10 - 9.55",
         name: "2 урок",
         img: lesson2
     },

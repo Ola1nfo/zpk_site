@@ -69,10 +69,19 @@
       justify-content: flex-start;
       margin: 20px;
 
-      .instagramLogo,
-      .mailLogo {
+      .instagramLogo {
         width: 45px;
         margin: 5px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1); 
+        }
+      }
+
+      .tiktokLogo {
+        width: 37px;
+        margin: 6px;
         transition: transform 0.3s ease;
 
         &:hover {
@@ -142,7 +151,7 @@
         flex-wrap: wrap;
 
         .instagramLogo,
-        .mailLogo {
+        .tiktokLogo {
           width: 35px;
           margin: 5px 8px;
         }
