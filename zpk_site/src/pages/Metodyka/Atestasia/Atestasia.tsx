@@ -22,11 +22,11 @@ export default function Atestasia() {
     },
     {
       title: "Список чергової атестації",
-      link: skladKomisii,
+      link: spusokChergovo,
     },
     {
       title: "Персональний склад атестаційної комісії",
-      link: spusokChergovo,
+      link: skladKomisii,
     },
   ];
 
