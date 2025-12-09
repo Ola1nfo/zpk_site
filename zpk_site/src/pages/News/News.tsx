@@ -3,6 +3,10 @@ import { getNewsList, addNews, deleteNews } from "../../services/newsService";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { uploadImagesToCloudinary, deleteImage } from "../../services/uploadService";
 import type { News } from "../../types/newsType";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
+import { useTheme, useMediaQuery } from "@mui/material";
+
 
 import "./News.scss";
 import Header from "../../components/Header/Header";
@@ -142,13 +146,23 @@ export default function NewsPage() {
     }));
   };
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const newsPerPage = 10;
+  const indexOfLastNews = currentPage * newsPerPage;
+  const indexOfFirstNews = indexOfLastNews - newsPerPage;
+  const currentNews = newsList.slice(indexOfFirstNews, indexOfLastNews);
+  const totalPages = Math.ceil(newsList.length / newsPerPage);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+
   return (
     <div>
       <Header />
       <div className="container news-container">
         <h1 className="page-title">Новини</h1>
 
-        {newsList.map((item) => (
+        {currentNews.map((item) => (
           <div key={item.id} className="news-card">
             <div className="news-title">
               <h2>{item.title}</h2>
@@ -230,6 +244,33 @@ export default function NewsPage() {
             )}
           </div>
         ))}
+
+        {totalPages > 1 && (
+          <Stack
+            alignItems="center"
+            sx={{
+              my: 4,
+              overflowX: "hidden",
+            }}
+          >
+            <Pagination
+              count={totalPages}
+              page={currentPage}
+              onChange={(_, value) => setCurrentPage(value)}
+              color="primary"
+              size={isMobile ? "small" : "medium"}
+              siblingCount={isMobile ? 0 : 1}
+              boundaryCount={isMobile ? 1 : 2}
+              showFirstButton={!isMobile}
+              showLastButton={!isMobile}
+              sx={{
+                "& .MuiPagination-ul": {
+                  flexWrap: "nowrap",   // ❗ не переносити в інший рядок
+                },
+              }}
+            />
+          </Stack>
+        )}
 
         <hr />
 

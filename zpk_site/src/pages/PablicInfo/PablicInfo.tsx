@@ -24,6 +24,7 @@ import pablicPdf18 from './pdf/pablicPdf18.pdf'
 import pablicPdf19 from './pdf/pablicPdf19.pdf'
 import pablicPdf20 from './pdf/pablicPdf20.pdf'
 import pablicPdf21 from './pdf/pablicPdf21.pdf'
+import pablicPdf22 from './pdf/pablicPdf22.pdf'
 
 // іконки
 import iconLink from './img/icon1.png'
@@ -31,6 +32,7 @@ import iconPdf from './img/icon2.png'
 
 export default function PablicInfo() {
     const documents = [
+        { title: "Про затвердження Порядку реагування на випадки насильства та жорстокого поводження з дітьми", file: pablicPdf22, type: "pdf" },
         { title: "Звіт директора 2025 р.", file: pablicPdf1, type: "pdf" },
         { title: `Закон України "Про доступ до публічної інформації"`, file: "https://zakon.rada.gov.ua/laws/show/2939-17#Text", type: "link" },
         { title: "Статут ДНЗ 'Здолбунівське ВПУЗТ'", file: pablicPdf2, type: "pdf" },
