@@ -11,7 +11,7 @@ import { Link } from 'react-router'
 
 
 //img
-import rulesPDF from "./file/Правила прийому_2025скан.pdf"
+import rulesPDF from "./file/Правила прийому 2026.pdf"
 import FaceIcon from '@mui/icons-material/Face'
 import PersonIcon from '@mui/icons-material/Person'
 import Photo1 from './img/photo1.jpg'

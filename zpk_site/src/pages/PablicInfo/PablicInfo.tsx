@@ -41,7 +41,7 @@ export default function PablicInfo() {
         { title: "Наявність вакантних посад", file: pablicPdf5, type: "pdf" },
         { title: "Свідоцтво про атестацію", file: pablicPdf6, type: "pdf" },
         { title: "Річний звіт про діяльність закладу 2025", file: pablicPdf7, type: "pdf" },
-        { title: "Правила прийому на 2025 рік", file: pablicPdf8, type: "pdf" },
+        { title: "Правила прийому на 2026 рік", file: pablicPdf8, type: "pdf" },
         { title: "Розмір плати за навчання", file: pablicPdf9, type: "pdf" },
         { title: "План заходів щодо протидії булінгу", file: pablicPdf10, type: "pdf" },
         { title: "Порядок подання заяв про булінг", file: pablicPdf11, type: "pdf" },
