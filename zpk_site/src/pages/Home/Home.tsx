@@ -182,7 +182,7 @@ export default function Home() {
                                             <Link className="dropdown-item" to="/priymalna-komisiya">Приймальна комісія</Link>
                                         </li>
                                         <li>
-                                            <Link className="dropdown-item" to="/ogoloshennya-dlya-abituriientiv">Оголошення для убітурієнтів</Link>
+                                            <Link className="dropdown-item" to="/ogoloshennya-dlya-abituriientiv">Оголошення для абітурієнтів</Link>
                                         </li>
                                     </ul>
                                 </li>
