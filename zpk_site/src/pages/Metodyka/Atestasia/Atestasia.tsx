@@ -9,6 +9,7 @@ import information from './docs/information.pdf';
 import grafikRobotu from './docs/grafik robotu.pdf';
 import skladKomisii from './docs/sklad komisii.pdf';
 import spusokChergovo from './docs/spusok chergovo.pdf';
+import pozachergova from './docs/pozachergova.pdf'
 
 export default function Atestasia() {
   const documents = [
@@ -27,6 +28,10 @@ export default function Atestasia() {
     {
       title: "Персональний склад атестаційної комісії",
       link: skladKomisii,
+    },
+    {
+      title: "Список позачергової атестації",
+      link: pozachergova,
     },
   ];
 
