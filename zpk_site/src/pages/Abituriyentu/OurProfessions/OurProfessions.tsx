@@ -18,6 +18,8 @@ import hair1 from './img/hair1.jpg'
 import nails1 from './img/nails1.jpg'
 import construction1 from './img/construction1.jpg'
 import construction2 from './img/construction2.jpg'
+import conductor1 from './img/conductor1.jpg'
+import conductor2 from './img/conductor2.jpg'
 
 // icons
 import icon1 from './img/icon1.png'
@@ -296,8 +298,8 @@ export default function OurProfessions() {
 
                     <div className="photo-text">
                         <div className="photo-block">
-                        <img src={train9} alt="пасажирський вагон" />
-                        <img src={train92} alt="обслуговування пасажирів" />
+                        <img src={conductor1} alt="пасажирський вагон" />
+                        <img src={conductor2} alt="обслуговування пасажирів" />
                     </div>
 
                     <div className="text-block">
