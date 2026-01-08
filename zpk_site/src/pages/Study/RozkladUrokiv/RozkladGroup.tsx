@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import './RozkladGroup.scss'
 import { useNavigate, useParams } from 'react-router-dom'
 import Header from '../../../components/Header/Header'
@@ -6,96 +5,71 @@ import Footer from '../../../components/Footer/Footer'
 import { useEffect, useState } from 'react'
 
 export default function RozkladGroup() {
-	const { groupId } = useParams()
-	const navigate = useNavigate()
+  const { groupId } = useParams()
+  const navigate = useNavigate()
+  const [scheduleForGroup, setScheduleForGroup] = useState<any[]>([])
 
-	const [scheduleForGroup, setScheduleForGroup] = useState<any[]>([])
+  // Розклад часу
+  const lessonTimes = [
+    "8:20 – 9:05",
+    "9:10 – 9:55",
+    "10:05 – 10:50",
+    "10:55 – 11:40",
+    "11:50 – 12:35",
+    "12:40 – 13:25",
+    "13:30 – 14:15",
+    "14:20 – 15:05",
+    "15:10 – 15:55"
+  ]
 
-	useEffect(() => {
-		const fetchSchedulesJSONData = async () => {
-			const json = await fetch('/schedules.json').then((r) => r.json())
-			console.log(json, scheduleForGroup)
-			setScheduleForGroup(json[groupId as keyof typeof json] || [])
-		}
-		fetchSchedulesJSONData()
-	}, [])
+  // Нумерація уроків (твоя власна)
+  const lessonNumbers = ["1", "2", "3", "4", "5", "6o", "6", "7", "8"]
 
-	const formatDate = () => {
-		const today = new Date()
-		const dayOfWeek = today.getDay()
+  useEffect(() => {
+    const load = async () => {
+      const data = await fetch('/schedules.json', { cache: "no-store" }).then(r => r.json())
+      setScheduleForGroup(data[groupId!] || [])
+    }
+    load()
+  }, [groupId])
 
-		const monday = new Date(today)
-		monday.setDate(today.getDate() - ((dayOfWeek + 6) % 7))
+  return (
+    <>
+      <Header />
+      <div className="container rozklad-group">
+        <h2 className="title">
+          Розклад для групи <span>{groupId}</span>
+        </h2>
 
-		const friday = new Date(monday)
-		friday.setDate(monday.getDate() + 4)
+        {scheduleForGroup.length > 0 ? (
+          <div className="mobile-schedule">
+            {scheduleForGroup.map((dayBlock, i) => (
+              <div key={i} className="mobile-day">
+                <div className="mobile-day-name">{dayBlock.day}</div>
 
-		const mondayDd = String(monday.getDate()).padStart(2, '0')
-		const mondayMm = String(monday.getMonth() + 1).padStart(2, '0')
-		const mondayYyyy = monday.getFullYear()
+                {dayBlock.lessons.map((lesson: any, j: number) => (
+                  <div key={j} className="mobile-lesson">
+                    <div className="lesson-number">{lessonNumbers[j]}</div>
 
-		const fridayDd = String(friday.getDate()).padStart(2, '0')
-		const fridayMm = String(friday.getMonth() + 1).padStart(2, '0')
-		const fridayYyyy = friday.getFullYear()
+                    <div className="lesson-info">
+                      <div className="lesson-subject">{lesson.subject}</div>
+                      <div className="lesson-time">⏱ {lessonTimes[j]}</div>
+                      <div className="lesson-room">📍 каб. {lesson.room}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="not-found">Розклад відсутній</p>
+        )}
 
-		return `${mondayDd}.${mondayMm}.${mondayYyyy} по ${fridayDd}.${fridayMm}.${fridayYyyy}`
-	}
-
-	return (
-		<div>
-			<Header />
-			<div className="container rozklad-group">
-				<h2>
-					Розклад уроків для {groupId} групи з {formatDate()}
-				</h2>
-
-				{scheduleForGroup.length > 0 ? (
-					<table className="schedule-table">
-						<thead>
-							<tr>
-								<th>День</th>
-								<th>Предмет</th>
-								<th>Аудиторія</th>
-							</tr>
-						</thead>
-						<tbody>
-							{scheduleForGroup.map((dayBlock, dayIndex) => (
-								<>
-									{dayBlock.lessons.map((lesson: any, lessonIndex: number) => {
-										const isLastLesson =
-											lessonIndex === dayBlock.lessons.length - 1
-										return (
-											<tr
-												key={`${dayIndex}-${lessonIndex}`}
-												className={isLastLesson ? 'day-separator' : ''}
-											>
-												{lessonIndex === 0 && (
-													<td
-														rowSpan={dayBlock.lessons.length}
-														className="day-cell"
-														data-label="День"
-													>
-														{dayBlock.day}
-													</td>
-												)}
-												<td data-label="Предмет">{lesson.subject}</td>
-												<td data-label="Аудиторія">{lesson.room}</td>
-											</tr>
-										)
-									})}
-								</>
-							))}
-						</tbody>
-					</table>
-				) : (
-					<p>Розклад не знайдено для цієї групи.</p>
-				)}
-
-				<button className="back-btn" onClick={() => navigate(-1)}>
-					Повернутися назад
-				</button>
-			</div>
-			<Footer />
-		</div>
-	)
+        <button className="back-btn centered" onClick={() => navigate(-1)}>
+          ← Назад
+        </button>
+      </div>
+      <Footer />
+    </>
+  )
 }
