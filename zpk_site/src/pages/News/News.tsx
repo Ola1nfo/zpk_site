@@ -7,7 +7,6 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { useTheme, useMediaQuery } from "@mui/material";
 
-
 import "./News.scss";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -47,6 +46,38 @@ export default function NewsPage() {
     setModalOpen(true);
   };
 
+  // Для редагування новини
+  const [editingNews, setEditingNews] = useState<News | null>(null);
+  const [editTitle, setEditTitle] = useState("");
+  const [editContent, setEditContent] = useState("");
+  const [editFiles, setEditFiles] = useState<FileList | null>(null);
+
+  // Для повноекранного перегляду
+  const [fullscreenImage, setFullscreenImage] = useState<{
+    images: string[];
+    index: number;
+  } | null>(null);
+
+  // Для свайпів
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.changedTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return;
+    const diff = e.changedTouches[0].clientX - touchStartX;
+    const swipeThreshold = 50; // мінімальна відстань для свайпу
+
+    if (diff > swipeThreshold) {
+      handleFullscreenBack();
+    } else if (diff < -swipeThreshold) {
+      handleFullscreenNext();
+    }
+    setTouchStartX(null);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await getNewsList();
@@ -60,6 +91,7 @@ export default function NewsPage() {
     });
   }, []);
 
+  // --- Авторизація ---
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -83,6 +115,7 @@ export default function NewsPage() {
     }
   };
 
+  // --- Додавання новини ---
   const handleAddNews = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -116,6 +149,7 @@ export default function NewsPage() {
     }
   };
 
+  // --- Видалення новини ---
   const handleDeleteNews = async (id: string, images: string[]) => {
     if (!confirm("Видалити цю новину?")) return;
 
@@ -132,6 +166,46 @@ export default function NewsPage() {
     }
   };
 
+  // --- Редагування новини ---
+  const handleEditClick = (news: News) => {
+    setEditingNews(news);
+    setEditTitle(news.title);
+    setEditContent(news.content);
+  };
+
+  const handleSaveEdit = async () => {
+    if (!editingNews) return;
+    setLoading(true);
+
+    try {
+      let images = editingNews.image || [];
+
+      if (editFiles && editFiles.length > 0) {
+        const uploaded = await uploadImagesToCloudinary(Array.from(editFiles));
+        images = [...images, ...uploaded];
+      }
+
+      const updatedNews: News = {
+        ...editingNews,
+        title: editTitle,
+        content: editContent,
+        image: images,
+      };
+
+      await addNews(updatedNews); // або updateNews
+      setNewsList(newsList.map(n => n.id === editingNews.id ? updatedNews : n));
+      showModal("Новина успішно оновлена!");
+      setEditingNews(null);
+      setEditFiles(null);
+    } catch (error) {
+      console.error(error);
+      showModal("Помилка при оновленні новини.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // --- Слайдер ---
   const handleNext = (id: string, max: number) => {
     setActiveSteps((prev) => ({
       ...prev,
@@ -146,6 +220,7 @@ export default function NewsPage() {
     }));
   };
 
+  // --- Пагінація ---
   const [currentPage, setCurrentPage] = useState(1);
   const newsPerPage = 10;
   const indexOfLastNews = currentPage * newsPerPage;
@@ -155,6 +230,22 @@ export default function NewsPage() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
+  // --- Fullscreen slider ---
+  const handleFullscreenNext = () => {
+    if (!fullscreenImage) return;
+    setFullscreenImage({
+      images: fullscreenImage.images,
+      index: (fullscreenImage.index + 1) % fullscreenImage.images.length,
+    });
+  };
+
+  const handleFullscreenBack = () => {
+    if (!fullscreenImage) return;
+    setFullscreenImage({
+      images: fullscreenImage.images,
+      index: fullscreenImage.index === 0 ? fullscreenImage.images.length - 1 : fullscreenImage.index - 1,
+    });
+  };
 
   return (
     <div>
@@ -179,9 +270,12 @@ export default function NewsPage() {
                       maxHeight: "500px",
                       objectFit: "cover",
                       borderRadius: "8px",
+                      cursor: "pointer"
                     }}
+                    onClick={() =>
+                      setFullscreenImage({ images: item.image!, index: activeSteps[item.id] || 0 })
+                    }
                   />
-
                   {item.image.length > 1 && (
                     <>
                       <Button
@@ -235,24 +329,16 @@ export default function NewsPage() {
             </div>
 
             {isAdmin && (
-              <button
-                className="delete-btn"
-                onClick={() => handleDeleteNews(item.id, item.image || [])}
-              >
-                ❌ Видалити
-              </button>
+              <div className="admin-buttons">
+                <button className="edit-btn" onClick={() => handleEditClick(item)}>Редагувати</button>
+                <button className="delete-btn" onClick={() => handleDeleteNews(item.id, item.image || [])}>Видалити</button>
+              </div>
             )}
           </div>
         ))}
 
         {totalPages > 1 && (
-          <Stack
-            alignItems="center"
-            sx={{
-              my: 4,
-              overflowX: "hidden",
-            }}
-          >
+          <Stack alignItems="center" sx={{ my: 4, overflowX: "hidden" }}>
             <Pagination
               count={totalPages}
               page={currentPage}
@@ -263,11 +349,7 @@ export default function NewsPage() {
               boundaryCount={isMobile ? 1 : 2}
               showFirstButton={!isMobile}
               showLastButton={!isMobile}
-              sx={{
-                "& .MuiPagination-ul": {
-                  flexWrap: "nowrap",   // ❗ не переносити в інший рядок
-                },
-              }}
+              sx={{ "& .MuiPagination-ul": { flexWrap: "nowrap" } }}
             />
           </Stack>
         )}
@@ -307,15 +389,16 @@ export default function NewsPage() {
                 placeholder="Текст новини"
                 required
               />
-              <input
-                type="file"
-                multiple
-                onChange={(e) => setFiles(e.target.files)}
-              />
+              <input type="file" multiple onChange={(e) => setFiles(e.target.files)} />
               <button type="submit" disabled={loading}>
                 {loading ? "Завантаження..." : "Додати"}
               </button>
-              <Button className="logout-btn" onClick={handleLogout} variant="contained" style={{ marginTop: "10px" }}>
+              <Button
+                className="logout-btn"
+                onClick={handleLogout}
+                variant="contained"
+                style={{ marginTop: "10px" }}
+              >
                 Вийти
               </Button>
             </form>
@@ -323,7 +406,7 @@ export default function NewsPage() {
         )}
       </div>
 
-      {/* Модальне вікно */}
+      {/* Модальне вікно повідомлень */}
       <Dialog open={modalOpen} onClose={() => setModalOpen(false)}>
         <DialogTitle>Повідомлення</DialogTitle>
         <DialogContent>
@@ -332,6 +415,103 @@ export default function NewsPage() {
         <DialogActions>
           <Button onClick={() => setModalOpen(false)}>Закрити</Button>
         </DialogActions>
+      </Dialog>
+
+      {/* Модальне вікно редагування */}
+      <Dialog open={!!editingNews} onClose={() => setEditingNews(null)} fullWidth maxWidth="sm">
+        <DialogTitle>Редагувати новину</DialogTitle>
+        <DialogContent>
+          <input
+            value={editTitle}
+            onChange={(e) => setEditTitle(e.target.value)}
+            placeholder="Заголовок"
+            required
+            style={{ width: "100%", marginBottom: "10px" }}
+          />
+          <textarea
+            value={editContent}
+            onChange={(e) => setEditContent(e.target.value)}
+            placeholder="Текст новини"
+            required
+            style={{ width: "100%", height: "150px" }}
+          />
+          <input
+            type="file"
+            multiple
+            onChange={(e) => setEditFiles(e.target.files)}
+            style={{ marginTop: "10px" }}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setEditingNews(null)}>Скасувати</Button>
+          <Button onClick={handleSaveEdit} disabled={loading}>
+            {loading ? "Завантаження..." : "Зберегти"}
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* Повноекранний перегляд фото з підтримкою свайпів */}
+      <Dialog
+        open={!!fullscreenImage}
+        onClose={() => setFullscreenImage(null)}
+        maxWidth="xl"
+        fullWidth
+        PaperProps={{
+          style: { backgroundColor: "rgba(0,0,0,0.9)", boxShadow: "none" }
+        }}
+      >
+        {fullscreenImage && (
+          <Box
+            position="relative"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            height="100vh"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            <Button
+              onClick={handleFullscreenBack}
+              style={{
+                position: "absolute",
+                left: "20px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                backgroundColor: "rgba(0,0,0,0.6)",
+                color: "#fff",
+                minWidth: "50px",
+                minHeight: "50px",
+                borderRadius: "50%",
+              }}
+            >
+              <KeyboardArrowLeft fontSize="large" />
+            </Button>
+
+            <img
+              src={fullscreenImage.images[fullscreenImage.index]}
+              alt=""
+              style={{ maxHeight: "90vh", maxWidth: "90vw", objectFit: "contain" }}
+              onClick={() => setFullscreenImage(null)}
+            />
+
+            <Button
+              onClick={handleFullscreenNext}
+              style={{
+                position: "absolute",
+                right: "20px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                backgroundColor: "rgba(0,0,0,0.6)",
+                color: "#fff",
+                minWidth: "50px",
+                minHeight: "50px",
+                borderRadius: "50%",
+              }}
+            >
+              <KeyboardArrowRight fontSize="large" />
+            </Button>
+          </Box>
+        )}
       </Dialog>
 
       <Footer />

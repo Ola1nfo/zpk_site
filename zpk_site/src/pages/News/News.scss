@@ -66,7 +66,21 @@
     }
 
     .delete-btn {
-      margin: 10px 15px;
+      margin: 10px 5px;
+      background: #fff;
+      border: 1px solid #c62828;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: #ffa4a4;
+      }
+    }
+
+    .edit-btn {
+      margin: 10px 5px;
       background: #fff;
       border: 1px solid #c62828;
       padding: 6px 12px;
@@ -188,6 +202,10 @@
       }
 
       .delete-btn {
+        padding: 4px 8px;
+        font-size: 12px;
+      }
+      .edit-btn {
         padding: 4px 8px;
         font-size: 12px;
       }
