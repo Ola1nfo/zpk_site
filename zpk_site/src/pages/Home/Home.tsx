@@ -203,6 +203,9 @@ export default function Home() {
                                         <li>
                                             <Link className="dropdown-item" to="/PISA">PISA</Link>
                                         </li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/NMT">НМТ</Link>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li className="nav-item dropdown">

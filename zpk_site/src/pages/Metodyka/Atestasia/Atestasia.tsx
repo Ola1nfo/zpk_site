@@ -3,6 +3,7 @@ import Header from "../../../components/Header/Header";
 import Footer from "../../../components/Footer/Footer";
 import { motion } from "framer-motion";
 import { FileText } from "lucide-react";
+import { Link } from "react-router-dom";
 
 //docs
 import information from './docs/information.pdf';
@@ -13,26 +14,15 @@ import pozachergova from './docs/pozachergova.pdf'
 
 export default function Atestasia() {
   const documents = [
-    {
-      title: "Інформація",
-      link: information,
-    },
-    {
-      title: "Графік роботи атестаційної комісії",
-      link: grafikRobotu,
-    },
-    {
-      title: "Список чергової атестації",
-      link: spusokChergovo,
-    },
-    {
-      title: "Персональний склад атестаційної комісії",
-      link: skladKomisii,
-    },
-    {
-      title: "Список позачергової атестації",
-      link: pozachergova,
-    },
+    { title: "Інформація", link: information, type: "file" },
+    { title: "Графік роботи атестаційної комісії", link: grafikRobotu, type: "file" },
+    { title: "Список чергової атестації", link: spusokChergovo, type: "file" },
+    { title: "Персональний склад атестаційної комісії", link: skladKomisii, type: "file" },
+    { title: "Список позачергової атестації", link: pozachergova, type: "file" },
+  ];
+
+  const presentations = [
+    { title: "Презентації педагогічних працівників (2026)", link: "/atestasia/prezentatsii/prezentatsii", type: "page" },
   ];
 
   return (
@@ -49,6 +39,7 @@ export default function Atestasia() {
           Атестація педагогічних працівників
         </motion.h1>
 
+        <h2 className="section-title">Документи</h2>
         <div className="documents-grid">
           {documents.map((doc, index) => (
             <motion.a
@@ -66,6 +57,24 @@ export default function Atestasia() {
             </motion.a>
           ))}
         </div>
+
+        <h2 className="section-title">Презентації педагогічних працівників</h2>
+        <div className="documents-grid">
+          {presentations.map((doc, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.15 }}
+            >
+              <Link to={doc.link} className="document-card">
+                <FileText className="doc-icon" size={42} />
+                <h3>{doc.title}</h3>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+
       </main>
 
       <Footer />

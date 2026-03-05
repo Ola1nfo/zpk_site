@@ -34,6 +34,8 @@ import FreeSupport from "./pages/Psycholog/pages/FreeSupport"
 import SuicidalBehavior from './pages/Psycholog/pages/SuicidalBehavior'
 import CareerCenter from './pages/CareerCenter/CareerCenter'
 import Video from './pages/Video/Video'
+import NMT from "./pages/Study/NMT/NMT"
+import Prezentatsii from "./pages/Metodyka/Atestasia/Prezentatsii/Prezentatsii"
 
 
 function App() {
@@ -53,6 +55,7 @@ function App() {
         <Route path='/electro-tabel' element={<ElektroTabel />}/>
         <Route path="/rozklad/:groupId" element={<RozkladGroup />} />
         <Route path="/PISA" element={<PISA />} />
+        <Route path="/NMT" element={<NMT />} />
         <Route path="/klasnyy-kerivnyk" element={<KlasnyyKerivnyk />} />
         <Route path="/samovryaduvannya" element={<Samovryaduvannya />} />
         <Route path="/gyrtky" element={<Gyrtky />} />
@@ -62,6 +65,7 @@ function App() {
         <Route path="/metodyka-porady" element={<MetodykaPorady />} />
         <Route path="/normatyvna-baza" element={<NormatyvnaBaza />} />
         <Route path="/atestasia" element={<Atestasia />} />
+        <Route path="/atestasia/prezentatsii/prezentatsii" element={<Prezentatsii />} />
         <Route path="/pablic-info" element={<PablicInfo />} />
         <Route path="/psycholog" element={<Psycholog />} />
         <Route path="/psycholog/bullying" element={<Bullying />} />

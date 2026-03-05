@@ -1,5 +1,6 @@
 .atestasia-page {
   min-height: 100vh;
+  display: flex;
   flex-direction: column;
   background: linear-gradient(135deg, #f5f7fa, #e2ebf0);
   color: #222;
@@ -7,14 +8,24 @@
 
   .atestasia-main {
     flex: 1;
-    padding: 80px 20px 60px;
+    padding: 20px 20px 60px;
     text-align: center;
 
     .page-title {
       font-size: 36px;
       font-weight: 700;
       color: var(--blue-color, #0056b3);
-      margin-bottom: 40px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--blue-color, #0056b3);
+      margin: 10px 0 25px;
+      border-bottom: 2px solid var(--blue-color, #0056b3);
+      display: inline-block;
+      padding-bottom: 5px;
     }
 
     .documents-grid {
@@ -81,6 +92,11 @@
 
       .page-title {
         font-size: 28px;
+      }
+
+      .section-title {
+        font-size: 22px;
+        margin: 35px 0 15px;
       }
 
       .documents-grid {
