@@ -31,7 +31,7 @@
 }
 
 .presentation-icon{
-  color: #1f3c88;
+  color: var(--blue-color);
   margin-bottom: 10px;
 }
 
@@ -47,10 +47,17 @@
 .btn-view{
   display: inline-block;
   padding: 8px 16px;
-  background: #1f3c88;
+  background: var(--blue-color);
+  border: 1px solid var(--blue-color);
   color: white;
   border-radius: 6px;
   font-size: 14px;
+
+  &:hover {
+    background-color: #fff;
+    color: var(--blue-color);
+    border: 1px solid var(--blue-color);
+  }
 }
 
 .back-link {
@@ -71,20 +78,13 @@
   color: white;
   text-decoration: none;
 
-  background: #007bff;
+  background: var(--blue-color);
+  border: 1px solid var(--blue-color);
   border-radius: 10px;
 
-  box-shadow: 0 6px 16px rgba(0, 86, 179, 0.25);
-
-  transition: all 0.25s ease;
-
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 22px rgba(0, 86, 179, 0.35);
-    background: #004799;
-  }
-
-  &:active {
-    transform: translateY(0);
+    background-color: #fff;
+    color: var(--blue-color);
+    border: 1px solid var(--blue-color);
   }
 }
