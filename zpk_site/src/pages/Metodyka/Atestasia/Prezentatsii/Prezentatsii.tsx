@@ -8,6 +8,9 @@ import { Link } from "react-router-dom";
 // презентації
 import Pylypchuk from "./pdf/Pylypchuk.pdf";
 import Shevchuk from "./pdf/Shevchuk.pdf";
+import Sitovska from "./pdf/Sitovska.pdf";
+import Nyzhnyk from "./pdf/Nyzhnyk.pdf";
+import Hrytsak from "./pdf/Hrytsak.pdf";
 import Bogatyreva from "./pdf/Bogatyreva.pdf";
 import Davydiuk from "./pdf/Davydiuk.pdf";
 import Gudzalov from "./pdf/Gudzalov.pdf";
@@ -25,9 +28,9 @@ export default function Prezentatsii() {
   const teachers = [
     { name: "Пилипчук Ірина", subject: "Бібліотекар", presentation: Pylypchuk },
     { name: "Шевчук Оксана", subject: "Майстер виробничого навчання", presentation: Shevchuk },
-    { name: "Сітовська Наталія", subject: "Вихователь гуртожитку", presentation: Shevchuk },
-    { name: "Нижник Тетяна", subject: "Викладач біології і екології", presentation: Shevchuk },
-    { name: "Грицак Сергій", subject: "Майстер виробничого навчання", presentation: Shevchuk },
+    { name: "Сітовська Наталія", subject: "Вихователь гуртожитку", presentation: Sitovska },
+    { name: "Нижник Тетяна", subject: "Викладач біології і екології", presentation: Nyzhnyk },
+    { name: "Грицак Сергій", subject: "Майстер виробничого навчання", presentation: Hrytsak },
     { name: "Гудзалов Іван", subject: "Викладач фізики і астрономії", presentation: Gudzalov },
     { name: "Давидюк Ірина", subject: "Викладач української мови та літератури", presentation: Davydiuk },
     { name: "Корчинська Ольга", subject: "Викладач математики, фізика та астрономії", presentation: Korchynska },
