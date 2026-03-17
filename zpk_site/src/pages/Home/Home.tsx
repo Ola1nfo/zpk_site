@@ -99,8 +99,8 @@ const professions = [
   },
   {
     id: 'derevo',
-    title: 'Деревообробник будівельник. Оператор з обробки інформації та програмного забезпечення',
-    description: 'Спеціалісти, які виконують роботи з обробки деревини для будівництва та обробляють інформацію за допомогою комп’ютерних програм для підтримки технічних і виробничих процесів.',
+    title: 'Оператор з обробки інформації та програмного забезпечення. Фотограф (фотороботи)',
+    description: 'Професія поєднує сучасні ІТ-навички та творчість. Учні навчаються працювати з комп’ютерними програмами, обробляти інформацію, створювати документи та цифровий контент. Додатково опановують основи фотографії: зйомку, обробку фото та створення якісних фоторобіт.',
     image: imgDerevoobrobnuk,
   },
   
@@ -306,7 +306,7 @@ export default function Home() {
                         <div className="carousel-item active">
                             <div className="d-flex justify-content-center align-items-center green-slide">
                                 <div className="carousel-caption text-white">
-                                    <h2>Вступна кампанія - 2025 у розпалі!</h2>
+                                    <h2>Вступна кампанія - 2026 у розпалі!</h2>
                                     <p>Запрошуємо до нас на навчання</p>
                                     <Link className="btn btn-dark mt-3" to="/our-professions">Ознайомитися з професіями</Link>
                                 </div>          
@@ -334,8 +334,8 @@ export default function Home() {
                             <div className="d-flex justify-content-center align-items-center green-slide">
                                 <div className="carousel-caption text-white">
                                     <h2>День відкритих дверей</h2>
-                                    <p>Із нетерпінням очікуємо наступної зустрічі з Вами</p>
-                                    <a className="btn btn-dark mt-3" href="#">Дізнатися більше</a>
+                                    <p>Із нетерпінням очікуємо зустрічі з Вами 27 березня</p>
+                                    <Link className="btn btn-dark mt-3" to="/ogoloshennya-dlya-abituriientiv">Дізнатися більше</Link>
                                 </div>
                             </div>
                         </div>
