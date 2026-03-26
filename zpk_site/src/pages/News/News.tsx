@@ -358,7 +358,7 @@ export default function NewsPage() {
 
         {!isAdmin ? (
           <form onSubmit={handleLogin} className="auth-form">
-            <h3>Увійти, щоб створити новину</h3>
+            <h3>Увійти, щоб створити новину для закладу</h3>
             <input
               type="email"
               value={email}
