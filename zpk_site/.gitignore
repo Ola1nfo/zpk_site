@@ -23,4 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 
-src\pages\Metodyka\Atestasia\Prezentatsii\pdf
+src/pages/Metodyka/Atestasia/Prezentatsii/pdf
