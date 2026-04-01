@@ -316,7 +316,7 @@ export default function Home() {
                             <div className="d-flex justify-content-center align-items-center green-slide">
                                 <div className="carousel-caption text-white">
                                     <h2>Приймальна комісія</h2>
-                                    <p>Чекаємо на вступників з повним пакетом докумнетів</p>
+                                    <p>Чекаємо на вступників з повним пакетом документів</p>
                                     <Link className="btn btn-dark mt-3" to="/priymalna-komisiya">Дізнатися більше</Link>
                                 </div>
                             </div>
