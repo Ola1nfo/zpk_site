@@ -36,11 +36,13 @@ import CareerCenter from './pages/CareerCenter/CareerCenter'
 import Video from './pages/Video/Video'
 import NMT from "./pages/Study/NMT/NMT"
 import Prezentatsii from "./pages/Metodyka/Atestasia/Prezentatsii/Prezentatsii"
+import Popup from "./components/Popup/Popup"
 
 
 function App() {
   return (
     <Router>
+      <Popup/>
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/history' element={<History />}/>
