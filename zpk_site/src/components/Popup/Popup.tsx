@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import styles from "./Popup.module.css";
 
-const DELAY_MS = 6_000;
+const DELAY_MS = 3_000;
 
 export default function Popup() {
   const [visible, setVisible] = useState<boolean>(false);

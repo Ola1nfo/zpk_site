@@ -26,6 +26,7 @@ import pablicPdf20 from './pdf/pablicPdf20.pdf'
 import pablicPdf21 from './pdf/pablicPdf21.pdf'
 import pablicPdf22 from './pdf/pablicPdf22.pdf'
 import pablicPdf23 from './pdf/pablicPdf23.pdf'
+import pablicPdf24 from './pdf/pablicPdf24.pdf'
 
 // іконки
 import iconLink from './img/icon1.png'
@@ -58,7 +59,8 @@ export default function PablicInfo() {
         { title: "Перелік додаткових освітніх послуг", file: pablicPdf18, type: "pdf" },
         { title: "Правила поведінки учнів", file: pablicPdf19, type: "pdf" },
         { title: "План підвищення кваліфікації педагогів", file: pablicPdf20, type: "pdf" },
-        { title: "Договір оренди", file: pablicPdf21, type: "pdf" }
+        { title: "Договір оренди", file: pablicPdf21, type: "pdf" },
+        { title: "Про затвердження Порядку реагування на випадки дискримінації за ознакою статі", file: pablicPdf24, type: "pdf" }
     ]
 
     return (
