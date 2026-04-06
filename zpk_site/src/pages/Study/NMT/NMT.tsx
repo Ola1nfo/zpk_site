@@ -4,6 +4,7 @@ import Footer from "../../../components/Footer/Footer"
 
 //pdf
 import PlanNMT2026 from './pdf/Plan-NMT2026.pdf'
+import Prava from './pdf/Prava ta obovazki.pdf'
 
 export default function NMT() {
     return (
@@ -70,7 +71,14 @@ export default function NMT() {
                         target="_blank" 
                         rel="noopener noreferrer"
                     >
-                        Переглянути документ
+                        Основна інформація
+                    </a>
+                    <a 
+                        href={Prava} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                    >
+                        Права та обов'язки учасників
                     </a>
                 </div>
 
