@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getNewsList, addNews, deleteNews } from "../../services/newsService";
+import { getNewsList, addNews, deleteNews, updateNews, deleteImageByUrl } from "../../services/newsService";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { uploadImagesToCloudinary, deleteImage } from "../../services/uploadService";
 import type { News } from "../../types/newsType";
@@ -173,16 +173,24 @@ export default function NewsPage() {
     setEditContent(news.content);
   };
 
+  // 🔥 ОНОВЛЕНА ФУНКЦІЯ
   const handleSaveEdit = async () => {
     if (!editingNews) return;
     setLoading(true);
 
     try {
-      let images = editingNews.image || [];
+      let images: string[] = [];
 
       if (editFiles && editFiles.length > 0) {
-        const uploaded = await uploadImagesToCloudinary(Array.from(editFiles));
-        images = [...images, ...uploaded];
+        if (editingNews.image && editingNews.image.length > 0) {
+          for (const url of editingNews.image) {
+            await deleteImageByUrl(url);
+          }
+        }
+
+        images = await uploadImagesToCloudinary(Array.from(editFiles));
+      } else {
+        images = editingNews.image || [];
       }
 
       const updatedNews: News = {
@@ -192,8 +200,12 @@ export default function NewsPage() {
         image: images,
       };
 
-      await addNews(updatedNews); // або updateNews
-      setNewsList(newsList.map(n => n.id === editingNews.id ? updatedNews : n));
+      await updateNews(updatedNews);
+
+      const data = await getNewsList();
+      const list = Object.values(data || {}) as News[];
+      setNewsList(list.reverse());
+
       showModal("Новина успішно оновлена!");
       setEditingNews(null);
       setEditFiles(null);

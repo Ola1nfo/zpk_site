@@ -9,6 +9,7 @@ import JanuaryPDF from "../../Education/NewspaperLider/pdf/january.pdf";
 import MarchPDF from "../../Education/NewspaperLider/pdf/march.pdf";
 import AprilPDF from "../../Education/NewspaperLider/pdf/april.pdf";
 import MayPDF from "../../Education/NewspaperLider/pdf/may.pdf";
+import March26PDF from "../../Education/NewspaperLider/pdf/march26.pdf";
 
 // img covers
 import WinterCover from "../../Education/NewspaperLider/img/WinterCover.png";
@@ -27,11 +28,12 @@ export default function NewspaperArchive() {
   const [selectedIssue, setSelectedIssue] = useState<Issue | null>(null);
 
   const issues: Issue[] = [
-    { id: 12, month: "Грудень", year: 2024, cover: WinterCover, pdf: DesemberPDF },
+    { id: 0, month: "Грудень", year: 2024, cover: WinterCover, pdf: DesemberPDF },
     { id: 1, month: "Січень-Лютий", year: 2025, cover: WinterCover, pdf: JanuaryPDF },
     { id: 2, month: "Березень", year: 2025, cover: SpringCover, pdf: MarchPDF },
     { id: 3, month: "Квітень", year: 2025, cover: SpringCover, pdf: AprilPDF },
-    { id: 4, month: "Травень", year: 2025, cover: SpringCover, pdf: MayPDF }
+    { id: 4, month: "Травень", year: 2025, cover: SpringCover, pdf: MayPDF },
+    { id: 5, month: "Березень", year: 2026, cover: SpringCover, pdf: March26PDF },
   ];
 
   return (
