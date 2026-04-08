@@ -27,7 +27,7 @@ export default function RozkladGroup() {
 
   useEffect(() => {
     const load = async () => {
-      const data = await fetch('/schedules.json?v=' + Date.now()).then(r => r.json())
+      const data = await fetch('/public/schedules.json?v=' + Date.now()).then(r => r.json())
       setScheduleForGroup(data[groupId!] || [])
     }
     load()
