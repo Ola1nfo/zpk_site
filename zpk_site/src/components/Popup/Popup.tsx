@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./Popup.module.css";
 
 const DELAY_MS = 3_000;
@@ -6,6 +7,7 @@ const DELAY_MS = 3_000;
 export default function Popup() {
   const [visible, setVisible] = useState<boolean>(false);
   const [animateOut, setAnimateOut] = useState<boolean>(false);
+  const { pathname } = useLocation();
 
   const close = useCallback(() => {
     setAnimateOut(true);
@@ -16,9 +18,10 @@ export default function Popup() {
   }, []);
 
   useEffect(() => {
+    if (pathname !== "/") return; // ← показувати тільки на головній
     const show = setTimeout(() => setVisible(true), DELAY_MS);
     return () => clearTimeout(show);
-  }, []);
+  }, [pathname]);
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) close();
@@ -37,17 +40,14 @@ export default function Popup() {
         aria-modal="true"
         aria-labelledby="popup-title"
       >
-        {/* Кнопка закрити */}
         <button className={styles.closeBtn} onClick={close} aria-label="Закрити">
           ×
         </button>
 
-        {/* Логотип */}
         <div className={styles.logoWrap}>
           <img src="/logo.png" alt="Логотип" className={styles.logo} />
         </div>
 
-        {/* Текст */}
         <h2 className={styles.title} id="popup-title">
           ЗАПРОШУЄМО
         </h2>
@@ -55,10 +55,9 @@ export default function Popup() {
           НА НАВЧАННЯ
         </h2>
 
-        {/* Кнопка */}
-        <a href="/ogoloshennya-dlya-abituriientiv" className={styles.btn}>
+        <Link to="/ogoloshennya-dlya-abituriientiv" className={styles.btn} onClick={close}>
           ДЕТАЛЬНІШЕ
-        </a>
+        </Link>
       </div>
     </div>
   );
