@@ -15,7 +15,7 @@ import rulesPDF from "./file/Правила прийому 2026.pdf"
 import FaceIcon from '@mui/icons-material/Face'
 import PersonIcon from '@mui/icons-material/Person'
 import Photo1 from './img/photo1.jpg'
-import Photo2 from './img/photo2.jpg'
+import Photo2 from './img/train9.jpg'
 import darvin from './img/charlz-darvin.jpg'
 import apsheroni from './img/apsheroni.jpg'
 
@@ -61,7 +61,7 @@ export default function AdmissionRules() {
                                             <li>Оператор з обробки інформації та програмного забезпечення. Фотограф (фотороботи) <span>(хлопці та дівчата)</span></li>
                                             <li>Машиніст тепловоза. Машиніст електровоза. Слюсар з ремонту рухомого складу <span>(хлопці)</span></li>
                                             <li>Слюсар-ремонтник. Слюсар з ремонту рухомого складу. Оглядач вагонів. Оглядач-ремонтник вагонів <span>(хлопці)</span></li>
-                                            <li>Перукар (перука-модельєр). Манікюрник <span>(хлопці та дівчата)</span></li>
+                                            <li>Перукар (перукар-модельєр). Манікюрник <span>(хлопці та дівчата)</span></li>
                                             <li>Монтажник систем утеплення будівель. Опоряджувальник будівельний. Монтажник санітарно-технічних систем та устаткування <span>(хлопці та дівчата)</span></li>
                                         </ul>
                                         <hr />
