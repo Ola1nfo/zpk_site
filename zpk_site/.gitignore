@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 zpk_site/src/pages/Metodyka/Atestasia/Prezentatsii/pdf/
+.DS_Store
+**/.DS_Store
