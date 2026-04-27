@@ -27,6 +27,7 @@ import pablicPdf21 from './pdf/pablicPdf21.pdf'
 import pablicPdf22 from './pdf/pablicPdf22.pdf'
 import pablicPdf23 from './pdf/pablicPdf23.pdf'
 import pablicPdf24 from './pdf/pablicPdf24.pdf'
+import pablicPdf25 from './pdf/pablicPdf25.pdf'
 
 // іконки
 import iconLink from './img/icon1.png'
@@ -34,6 +35,7 @@ import iconPdf from './img/icon2.png'
 
 export default function PablicInfo() {
     const documents = [
+        { title: "Вступ для молоді з тимчасово окупованих територій у 2026", file: pablicPdf25, type: "pdf" },
         { title: "До уваги юнаків 2009 року та їхніх батьків", file: pablicPdf23, type: "pdf" },
         { title: "Про затвердження Порядку реагування на випадки насильства та жорстокого поводження з дітьми", file: pablicPdf22, type: "pdf" },
         { title: "Звіт директора 2025 р.", file: pablicPdf1, type: "pdf" },
