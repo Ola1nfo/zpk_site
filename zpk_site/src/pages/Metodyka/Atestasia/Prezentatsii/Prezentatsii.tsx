@@ -6,7 +6,6 @@ import { Presentation, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
 // презентації
-import Pylypchuk from "./pdf/Pylypchuk.pdf";
 import Shevchuk from "./pdf/Shevchuk.pdf";
 import Sitovska from "./pdf/Sitovska.pdf";
 import Nyzhnyk from "./pdf/Nyzhnyk.pdf";
@@ -26,7 +25,6 @@ import Filyuk from "./pdf/Filyuk.pdf";
 export default function Prezentatsii() {
 
   const teachers = [
-    { name: "Пилипчук Ірина", subject: "Бібліотекар", presentation: Pylypchuk },
     { name: "Шевчук Оксана", subject: "Майстер виробничого навчання", presentation: Shevchuk },
     { name: "Сітовська Наталія", subject: "Вихователь гуртожитку", presentation: Sitovska },
     { name: "Нижник Тетяна", subject: "Викладач біології і екології", presentation: Nyzhnyk },
