@@ -12,6 +12,8 @@ import { useState } from 'react';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet'
+import { useEffect, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 //img
 import Logo from '../../components/img/logo.png'
@@ -132,6 +134,42 @@ function FlyToMarker() {
 export default function Home() {
     
     const [index, setIndex] = useState(0);
+    const speed = 1
+    const [timeLeft, setTimeLeft] = useState<{ days: number; hours: number; minutes: number; seconds: number } | null>(null)
+    const [isLoading, setIsLoading] = useState(true)
+    const [isStarted, setIsStarted] = useState(false)
+    const startRealRef = useRef<number | null>(null)
+
+    useEffect(() => {
+    const targetDate = new Date('2026-06-01T09:00:00').getTime()
+    if (startRealRef.current === null) startRealRef.current = Date.now()
+
+    const tick = () => {
+        const nowReal = Date.now()
+        const startReal = startRealRef.current as number
+        const nowSim = startReal + Math.floor((nowReal - startReal) * speed)
+        const diff = targetDate - nowSim
+
+        if (diff > 0) {
+        const totalSeconds = Math.floor(diff / 1000)
+        setTimeLeft({
+            days: Math.floor(totalSeconds / (24 * 3600)),
+            hours: Math.floor((totalSeconds % (24 * 3600)) / 3600),
+            minutes: Math.floor((totalSeconds % 3600) / 60),
+            seconds: totalSeconds % 60
+        })
+        setIsStarted(false)
+        } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+        setIsStarted(true)
+        }
+        setIsLoading(false)
+    }
+
+    tick()
+    const interval = setInterval(tick, 1000)
+    return () => clearInterval(interval)
+    }, [])
     const prev = () => {setIndex((prev) => (prev > 0 ? prev - 1 : 0))}
     const next = () => {setIndex((prev) => prev + 3 < professions.length ? prev + 1 : prev)}
     const cardWidth = 345; 
@@ -350,6 +388,30 @@ export default function Home() {
                     </button>
                 </div>
             </section>
+            <section className="timer-section">
+                <div className="container text-center">
+                    <h4>До початку роботи приймальної комісії 2026</h4>
+                    <AnimatePresence>
+                    {isLoading ? (
+                        <motion.div key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                        <div className="spinner-border text-primary" role="status"></div>
+                        </motion.div>
+                    ) : isStarted ? (
+                        <motion.div key="started" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}>
+                        🎉 Приймальна комісія вже працює! Завітайте до нас!
+                        </motion.div>
+                    ) : (
+                        <motion.div key="timer" className="counter" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+                        <div className="counter-box"><span>{timeLeft?.days}</span><p>днів</p></div>
+                        <div className="counter-box"><span>{timeLeft?.hours}</span><p>годин</p></div>
+                        <div className="counter-box"><span>{timeLeft?.minutes}</span><p>хвилин</p></div>
+                        <div className="counter-box small"><span>{timeLeft?.seconds}</span><p>секунд</p></div>
+                        </motion.div>
+                    )}
+                    </AnimatePresence>
+                    <a href="/priymalna-komisiya" className="btn btn-success mt-3">Детальніше про вступ →</a>
+                </div>
+                </section>
             <section className="advantages-section">
                 <div className="container text-center">
                     <h2>12 переваг здобувати освіту в нашому закладі освіти</h2>
