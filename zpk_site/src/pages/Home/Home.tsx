@@ -20,6 +20,7 @@ import Logo from '../../components/img/logo.png'
 import instagramLogo from '../../components/img/instagramLogo.png'
 import facebookLogo from '../../components/img/facebookLogo.png'
 import tiktokLogo from '../../components/img/tiktokLogo.png'
+import threadsLogo from '../../components/img/threads-icon.png'
 import icon1 from '../../components/Header/img/icon1.png'
 import icon2 from '../../components/Header/img/icon2.png'
 import icon3 from '../../components/Header/img/icon3.png'
@@ -311,6 +312,7 @@ export default function Home() {
                         <a className="nav-link" href="https://www.instagram.com/zpkpto/"><img className='instagramLogo' src={ instagramLogo } alt="instagramLogo" /></a>
                         <a className="nav-link" href="https://www.facebook.com/zvpuzt/"><img className='instagramLogo' src={ facebookLogo } alt="facebookLogo" /></a>
                         <a className="nav-link" href="https://www.tiktok.com/@zpkpto_zd"><img className='tiktokLogo' src={ tiktokLogo } alt="tiktokLogo" /></a>
+                        <a className="nav-link" href="https://www.threads.com/@zpkpto?igshid=NTc4MTIwNjQ2YQ=="><img className='tiktokLogo' src={ threadsLogo } alt="threadsLogo" /></a>
                     </div>
                     <div className="hero-buttons">
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSea1Ik5Sx69CdysSDCd_Io6OFeiXoSgBqbE-5iyckczOq0Y3A/viewform?usp=publish-editor" className="btn btn-zaiva me-2">Подати заяву онлайн</a>
@@ -409,7 +411,7 @@ export default function Home() {
                         </motion.div>
                     )}
                     </AnimatePresence>
-                    <a href="/priymalna-komisiya" className="btn btn-success mt-3">Детальніше про вступ →</a>
+                    <a href="/priymalna-komisiya" className="btn btn-success mt-3">Детальніше про вступ</a>
                 </div>
                 </section>
             <section className="advantages-section">

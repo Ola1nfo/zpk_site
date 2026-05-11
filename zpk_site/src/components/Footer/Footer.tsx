@@ -6,6 +6,7 @@ import { Link } from 'react-router'
 import instagramLogo from '../../components/img/instagramLogo.png'
 import facebookLogo from '../../components/img/facebookLogo.png'
 import tiktokLogo from '../../components/img/tiktokLogo.png'
+import threadsLogo from '../../components/img/threads-icon.png'
 
 export default function Footer() {
 
@@ -21,6 +22,7 @@ export default function Footer() {
                             <a className="nav-link" href="https://www.instagram.com/zpkpto/"><img className='instagramLogo' src={ instagramLogo } alt="instagramLogo" /></a>
                             <a className="nav-link" href="https://www.facebook.com/zvpuzt/"><img className='instagramLogo' src={ facebookLogo } alt="facebookLogo" /></a>
                             <a className="nav-link" href="https://www.tiktok.com/@zpkpto_zd"><img className='tiktokLogo' src={ tiktokLogo } alt="tiktokLogo" /></a>
+                            <a className="nav-link" href="https://www.threads.com/@zpkpto?igshid=NTc4MTIwNjQ2YQ=="><img className='tiktokLogo' src={ threadsLogo } alt="threadsLogo" /></a>
                         </div>
                     </div>
                 </div>
