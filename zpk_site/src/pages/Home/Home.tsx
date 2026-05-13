@@ -306,6 +306,32 @@ export default function Home() {
             <div className="hero-section">
                 <div className="overlay"></div>
                 <div className="hero-content text-center text-white">
+                    <div className="hero-timer">
+                        <p className="hero-timer-label">До початку приймальної комісії 2026</p>
+                        <AnimatePresence>
+                            {isLoading ? null : isStarted ? (
+                            <motion.div key="started" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                                className="hero-timer-started">
+                                🎉 Приймальна комісія вже працює!
+                            </motion.div>
+                            ) : (
+                            <motion.div key="timer" className="hero-timer-counter"
+                                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                                {[
+                                { val: timeLeft?.days,    label: 'днів'    },
+                                { val: timeLeft?.hours,   label: 'годин'   },
+                                { val: timeLeft?.minutes, label: 'хвилин'  },
+                                { val: timeLeft?.seconds, label: 'секунд'  },
+                                ].map(({ val, label }) => (
+                                <div key={label} className="hero-timer-box">
+                                    <span>{String(val ?? 0).padStart(2, '0')}</span>
+                                    <p>{label}</p>
+                                </div>
+                                ))}
+                            </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
                     <h1>Здолбунівський професійний коледж</h1>
                     <p>З НАМИ ЦІКАВО, ТВОРЧО, ПРОФЕСІЙНО!<br />ПРИЄДНУЙСЯ!</p>
                     <div className='linkBtn'>
@@ -332,6 +358,7 @@ export default function Home() {
                         </a>
                         <a href="/priymalna-komisiya" className="btn btn-secondary">Запрошуємо на навчання</a>
                     </div>
+                    
                 </div>
             </div>
             <section className="green-carousel-section">
@@ -390,30 +417,7 @@ export default function Home() {
                     </button>
                 </div>
             </section>
-            <section className="timer-section">
-                <div className="container text-center">
-                    <h4>До початку роботи приймальної комісії 2026</h4>
-                    <AnimatePresence>
-                    {isLoading ? (
-                        <motion.div key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                        <div className="spinner-border text-primary" role="status"></div>
-                        </motion.div>
-                    ) : isStarted ? (
-                        <motion.div key="started" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}>
-                        🎉 Приймальна комісія вже працює! Завітайте до нас!
-                        </motion.div>
-                    ) : (
-                        <motion.div key="timer" className="counter" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-                        <div className="counter-box"><span>{timeLeft?.days}</span><p>днів</p></div>
-                        <div className="counter-box"><span>{timeLeft?.hours}</span><p>годин</p></div>
-                        <div className="counter-box"><span>{timeLeft?.minutes}</span><p>хвилин</p></div>
-                        <div className="counter-box small"><span>{timeLeft?.seconds}</span><p>секунд</p></div>
-                        </motion.div>
-                    )}
-                    </AnimatePresence>
-                    <a href="/priymalna-komisiya" className="btn btn-success mt-3">Детальніше про вступ</a>
-                </div>
-                </section>
+            
             <section className="advantages-section">
                 <div className="container text-center">
                     <h2>12 переваг здобувати освіту в нашому закладі освіти</h2>
