@@ -21,6 +21,7 @@ import instagramLogo from '../../components/img/instagramLogo.png'
 import facebookLogo from '../../components/img/facebookLogo.png'
 import tiktokLogo from '../../components/img/tiktokLogo.png'
 import threadsLogo from '../../components/img/threads-icon.png'
+import youtubeLogo from '../../components/img/youtubeLogo.png'
 import icon1 from '../../components/Header/img/icon1.png'
 import icon2 from '../../components/Header/img/icon2.png'
 import icon3 from '../../components/Header/img/icon3.png'
@@ -339,6 +340,7 @@ export default function Home() {
                         <a className="nav-link" href="https://www.facebook.com/zvpuzt/"><img className='instagramLogo' src={ facebookLogo } alt="facebookLogo" /></a>
                         <a className="nav-link" href="https://www.tiktok.com/@zpkpto_zd"><img className='tiktokLogo' src={ tiktokLogo } alt="tiktokLogo" /></a>
                         <a className="nav-link" href="https://www.threads.com/@zpkpto?igshid=NTc4MTIwNjQ2YQ=="><img className='tiktokLogo' src={ threadsLogo } alt="threadsLogo" /></a>
+                        <a className="nav-link" href="https://www.youtube.com/channel/UCB2RhsMnvmUKyNJ7MTot_Eg"><img className='tiktokLogo' src={ youtubeLogo } alt="youtubeLogo" /></a>
                     </div>
                     <div className="hero-buttons">
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSea1Ik5Sx69CdysSDCd_Io6OFeiXoSgBqbE-5iyckczOq0Y3A/viewform?usp=publish-editor" className="btn btn-zaiva me-2">Подати заяву онлайн</a>
@@ -349,7 +351,7 @@ export default function Home() {
 
                     <div className="hero-secondary-buttons mt-3">
                         <a
-                        href="https://www.youtube.com/watch?v=gYno78tASso&t=4s"
+                        href="https://www.youtube.com/watch?v=XgjkkliKScc"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn btn-secondary me-2"
