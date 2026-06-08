@@ -28,6 +28,7 @@ import pablicPdf22 from './pdf/pablicPdf22.pdf'
 import pablicPdf23 from './pdf/pablicPdf23.pdf'
 import pablicPdf24 from './pdf/pablicPdf24.pdf'
 import pablicPdf25 from './pdf/pablicPdf25.pdf'
+import pablicPdf26 from './pdf/pablicPdf26.pdf'
 
 // іконки
 import iconLink from './img/icon1.png'
@@ -62,7 +63,8 @@ export default function PablicInfo() {
         { title: "Правила поведінки учнів", file: pablicPdf19, type: "pdf" },
         { title: "План підвищення кваліфікації педагогів", file: pablicPdf20, type: "pdf" },
         { title: "Договір оренди", file: pablicPdf21, type: "pdf" },
-        { title: "Про затвердження Порядку реагування на випадки дискримінації за ознакою статі", file: pablicPdf24, type: "pdf" }
+        { title: "Про затвердження Порядку реагування на випадки дискримінації за ознакою статі", file: pablicPdf24, type: "pdf" },
+        { title: "3 страхи, які заважають виїхати з окупації", file: pablicPdf26, type: "pdf" },
     ]
 
     return (
