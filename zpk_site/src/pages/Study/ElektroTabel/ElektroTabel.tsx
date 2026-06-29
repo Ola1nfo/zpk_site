@@ -8,7 +8,7 @@ type Group = {
   id: number;
   name: string;
   img: string;
-};
+}; 
 
 export default function ElektroTabel() {
   const [activeImage, setActiveImage] = useState<string | null>(null);
